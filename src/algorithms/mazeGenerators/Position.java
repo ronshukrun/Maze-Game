@@ -1,4 +1,5 @@
 package algorithms.mazeGenerators;
 
-public class Position {
+public class Position
+{
 }
