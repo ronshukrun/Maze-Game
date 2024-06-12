@@ -8,6 +8,8 @@ public abstract class AState {
 
     protected Object state;
     protected AState prevState;
+    protected double cost;
+
 
     /**
      * Determines whether the state is valid under the conditions of the problem.
@@ -48,5 +50,20 @@ public abstract class AState {
             throw new IllegalArgumentException("The provided previous state is null.");
         }
         this.prevState = prevState;
+    }
+
+    /**
+     * Gets the cost of reaching this state.
+     * @return the cost of the state
+     */
+    public double getCost() {
+        return this.cost;
+    }
+    /**
+     * Sets the cost of reaching this state.
+     * @param cost the cost to set
+     */
+    public void setCost(double cost) {
+        this.cost = cost;
     }
 }
