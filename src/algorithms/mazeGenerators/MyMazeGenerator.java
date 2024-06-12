@@ -76,12 +76,12 @@ public class MyMazeGenerator extends AMazeGenerator{
     public void Maze2x2() {
         myMaze.setMaze(myMaze.getStartPosition().getRowIndex(), myMaze.getStartPosition().getColumnIndex(), 0);
 
-        myMaze.setMaze(myMaze.getEndPosition().getRowIndex(), myMaze.getEndPosition().getColumnIndex(), 0);
+        myMaze.setMaze(myMaze.getGoalPosition().getRowIndex(), myMaze.getGoalPosition().getColumnIndex(), 0);
 
         int colIndexS= myMaze.getStartPosition().getColumnIndex();
         int rowIndexS= myMaze.getStartPosition().getRowIndex();
-        int colIndexE= myMaze.getEndPosition().getColumnIndex();
-        int rowIndexE= myMaze.getEndPosition().getRowIndex();
+        int colIndexE= myMaze.getGoalPosition().getColumnIndex();
+        int rowIndexE= myMaze.getGoalPosition().getRowIndex();
 
         if (colIndexS != colIndexE && rowIndexS != rowIndexE)
         {
@@ -212,7 +212,7 @@ public class MyMazeGenerator extends AMazeGenerator{
             if (myMaze.getValue(p.getRowIndex(), p.getColumnIndex()) == 0 &&
                     !p.equals(myMaze.getStartPosition())) {
                 Position position = new Position(p.getRowIndex(), p.getColumnIndex());
-                myMaze.setEndPosition(position);
+                myMaze.setGoalPosition(position);
                 b = true;
             }
         }

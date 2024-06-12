@@ -10,7 +10,7 @@ public class Maze {
     private int columns;
     private int[][] maze;
     private Position startPosition;
-    private Position endPosition;
+    private Position goalPosition;
 
 
     /**
@@ -31,7 +31,7 @@ public class Maze {
             p2 = generateFramePosition(rows, columns);
         }
         setStartPosition(p1);
-        setEndPosition(p2);
+        setGoalPosition(p2);
     }
 
     /**
@@ -52,7 +52,7 @@ public class Maze {
      * Sets the end position of the maze.
      * @param endPosition The end position to set.
      */
-    public void setEndPosition(Position endPosition) {this.endPosition = endPosition;}
+    public void setGoalPosition(Position endPosition) {this.goalPosition = endPosition;}
 
     /**
      * Sets the number of rows in the maze.
@@ -82,7 +82,7 @@ public class Maze {
      * Gets the end position of the maze.
      * @return The end position.
      */
-    public Position getEndPosition() {return endPosition;}
+    public Position getGoalPosition() {return goalPosition;}
 
     /**
      * Gets the start position of the maze.
@@ -112,7 +112,7 @@ public class Maze {
      */
     public Position generateFramePosition(int rows, int columns) {
         List<Position> framePositions = new ArrayList<>();
-
+        //
         // Add points from the top and bottom rows
         for (int j = 0; j < columns; j++) {
             framePositions.add(new Position(0, j));                      // Top row
@@ -130,7 +130,59 @@ public class Maze {
         int index = random.nextInt(framePositions.size());
         return framePositions.get(index);
     }
+    /**
+     * print the maze
+     */
+    public void print1(){
+        int StartIdxRow = getStartPosition().getRowIndex();
+        int StartIdxCol = getStartPosition().getColumnIndex();
+        int GoalIdxRow = getGoalPosition().getRowIndex();
+        int GoalIdxCol = getGoalPosition().getColumnIndex();
+        System.out.print("{");
+        for (int i=0; i< rows; i++){
+            System.out.print("{");
+            for ( int j=0; j< columns; j++){
+                if (i== StartIdxRow && j== StartIdxCol){
+                    System.out.print("S");
+                }
 
+                else if (i== GoalIdxRow && j== GoalIdxCol){
+                    System.out.print("E");
+                }
+                else {
+                    System.out.print(maze[i][j] );
+                }
+                if (j!=columns-1){
+                    System.out.print(',');
+                }
+            }
+            if (i!=rows-1)
+                System.out.print("}\n," );
+            else
+                System.out.print("}");
+        }
+        System.out.print("}\n");
+    }
+    public void print() {
+
+        int startRow = getStartPosition().getRowIndex();
+        int startCol = getStartPosition().getColumnIndex();
+        int goalRow = getGoalPosition().getRowIndex();
+        int goalCol = getGoalPosition().getColumnIndex();
+
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                if (i == startRow && j == startCol) {
+                    System.out.print("S ");
+                } else if (i == goalRow && j == goalCol) {
+                    System.out.print("E ");
+                } else {
+                    System.out.print(maze[i][j] + " ");
+                }
+            }
+            System.out.println();
+        }
+    }
     /////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -181,38 +233,7 @@ public class Maze {
 //    }
 
 
-//    /**
-//     * print the maze
-//     */
-//    public void print(){
-//        int StartIdxRow =getStartPosition().getRowIndex();
-//        int StartIdxCol = getStartPosition().getColumnIndex();
-//        int GoalIdxRow= getGoalPosition().getRowIndex();
-//        int GoalIdxCol= getGoalPosition().getColumnIndex();
-//        System.out.print("{");
-//        for (int i=0; i< rows; i++){
-//            System.out.print("{");
-//            for ( int j=0; j< columns; j++){
-//                if (i== StartIdxRow && j== StartIdxCol){
-//                    System.out.print("S");
-//                }
-//                else if (i== GoalIdxRow && j== GoalIdxCol){
-//                    System.out.print("E");
-//                }
-//                else {
-//                    System.out.print(mazeArr[i][j] );
-//                }
-//                if (j!=columns-1){
-//                    System.out.print(',');
-//                }
-//            }
-//            if (i!=rows-1)
-//                System.out.print("}\n," );
-//            else
-//                System.out.print("}");
-//        }
-//        System.out.print("}\n");
-//    }
+
 //
 //    /**
 //     *  the details of the maze get in an array of bytes
@@ -256,4 +277,6 @@ public class Maze {
 //        result = 31 * result + Arrays.hashCode(mazeArr);
 //        return result;
 //    }
+
+
 }
