@@ -1,8 +1,31 @@
 package algorithms.search;
+import java.util.ArrayList;
 
-import java.util.List;
+public class Solution
 
-public class Solution {
-    public Solution(List<AState> sol) {
+{
+    private ArrayList<AState> AStates ;
+
+    /**
+     * Constructor gets an ArrayList of AState
+     * presenting the solution path
+     * and sets it as the AStates field
+     * @param AStates the solution path array
+     */
+    public Solution(ArrayList<AState> AStates)
+    {
+        if(AStates == null)
+        {
+            throw new RuntimeException("The ArrayList that supplied is not legal! (null)");
+        }
+        this.AStates = AStates;
+    }
+
+    /**
+     * @return the Solution Path of a problem (ArrayList<AState>)
+     */
+    public ArrayList<AState> getSolutionPath()
+    {
+        return this.AStates;
     }
 }

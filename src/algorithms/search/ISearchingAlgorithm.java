@@ -2,10 +2,10 @@ package algorithms.search;
 
 public interface ISearchingAlgorithm {
 
-    String getAlgorithmName();
-    void setAlgorithmName(String algorithmName);
-    int getNodesNum();
-    void setNodesNum(int nodesNum);
-    Solution Solution (ISearchable searchable );
+    String getName();
+    void setName(String algorithmName);
+    int getNumberOfNodesEvaluated();
+    void setNumberOfNodesEvaluated(int nodesNum);
+    Solution solve(ISearchable searchable );
 
 }
