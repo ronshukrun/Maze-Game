@@ -19,7 +19,7 @@ public class SearchableMaze implements ISearchable {
         if (maze == null) {
             throw new IllegalArgumentException("The maze provided is null");
         }
-        if (maze.getRows() <= 1 || maze.getColumns() <= 1) {
+        if (maze.getRows() < 2 || maze.getColumns() < 2) {
             throw new IllegalArgumentException("The number of rows and columns must be greater then 2.");
         }
         this.maze = maze;

@@ -46,13 +46,23 @@ public class Maze {
      * Sets the start position of the maze.
      * @param startPosition The start position to set.
      */
-    public void setStartPosition(Position startPosition) {this.startPosition = startPosition;}
+    public void setStartPosition(Position startPosition) {
+        if (startPosition.getRowIndex() < 0 || startPosition.getRowIndex() >= maze.length || startPosition.getColumnIndex() < 0 || startPosition.getColumnIndex() >= maze[0].length) {
+            throw new IllegalArgumentException("Invalid start position");
+        }
+        this.startPosition = startPosition;
+    }
 
     /**
      * Sets the end position of the maze.
-     * @param endPosition The end position to set.
+     * @param goalPosition The end position to set.
      */
-    public void setGoalPosition(Position endPosition) {this.goalPosition = endPosition;}
+    public void setGoalPosition(Position goalPosition) {
+        if (goalPosition.getRowIndex() < 0 || goalPosition.getRowIndex() >= maze.length || goalPosition.getColumnIndex() < 0 || goalPosition.getColumnIndex() >= maze[0].length) {
+            throw new IllegalArgumentException("Invalid goal position");
+        }
+        this.goalPosition = goalPosition;
+    }
 
     /**
      * Sets the number of rows in the maze.

@@ -16,6 +16,7 @@ public class Position implements Serializable {
     public Position(int rowIndex, int columnIndex) {
         if (rowIndex < 0 || columnIndex < 0) {
             throw new IllegalArgumentException("Row and column indices must be non-negative.");
+
         }
         this.rowIndex = rowIndex;
         this.columnIndex = columnIndex;
