@@ -193,100 +193,17 @@ public class Maze {
             System.out.println();
         }
     }
-    /////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-//
-//    public Maze(byte[] byteArr){
-//        //rows = 0;
-//        rows = byteArr[0] < 0 ? byteArr[0]+256 : byteArr[0];
-//        rows |= (byteArr[1] << 8);
-//        columns = byteArr[2]< 0 ? byteArr[2]+256 : byteArr[2];;
-//        columns |= (byteArr[3] << 8);
-//        int rowStart = byteArr[4]< 0 ? byteArr[4]+256 : byteArr[4];;
-//        rowStart |= (byteArr[5] << 8);
-//        int colStart= byteArr[6]< 0 ? byteArr[6]+256 : byteArr[6];;
-//        colStart |= (byteArr[7] << 8);
-//        int rowEnd = byteArr[8]< 0 ? byteArr[8]+256 : byteArr[8];;
-//        rowEnd |= (byteArr[9] << 8);
-//        int colEnd= byteArr[10]< 0 ? byteArr[10]+256 : byteArr[10];;
-//        colEnd |= (byteArr[11] << 8);
-//        setStartPoint(rowStart, colStart);
-//        setEndPoint(rowEnd,colEnd);
-//        this.mazeArr= new int[rows][columns];
-//        int b = 12;
-//        for (int r=0; r<rows; r++){
-//            for (int c=0; c<columns; c++){
-//                setMazeArr(r,c,byteArr[b]);
-//                b++;
-//            }
-//        }
-//    }
-
-
-
-
-
-
-//    /**
-//     * @return number of the rows in the maze
-//     */
-//    public int getRows() {
-//        return mazeArr.length;
-//    }
-//
-//    /**
-//     * @return number of the columns in the maze
-//     */
-//    public int getColumns() {
-//        return mazeArr[0].length;
-//    }
-
-
-
-//
-//    /**
-//     *  the details of the maze get in an array of bytes
-//     * @return the maze in byte array
-//     */
-//    public byte[] toByteArray(){
-//        byte[] byteArr = new byte[rows*columns+12];
-//        byteArr[0] = (byte)(rows & 255);
-//        byteArr[1] = (byte)((rows >> 8) & 255);
-//        byteArr[2] = (byte)(columns & 255);
-//        byteArr[3] = (byte)((columns >> 8) & 255);
-//        byteArr[4] = (byte)(getStartPosition().getRowIndex()& 255);
-//        byteArr[5] = (byte)((getStartPosition().getRowIndex() >> 8 ) & 255);
-//        byteArr[6] = (byte)(getStartPosition().getColumnIndex() & 255);
-//        byteArr[7] = (byte)((getStartPosition().getColumnIndex() >> 8 ) & 255);
-//        byteArr[8] = (byte)(getGoalPosition().getRowIndex() & 255);
-//        byteArr[9] = (byte)((getGoalPosition().getRowIndex() >> 8 ) & 255);
-//        byteArr[10] = (byte)(getGoalPosition().getColumnIndex() & 255);
-//        byteArr[11] = (byte)((getGoalPosition().getColumnIndex() >> 8 ) & 255);
-//        int b=12;
-//        for(int r=0; r<rows; r++){
-//            for(int c=0; c<columns; c++){
-//                byteArr[b] = (byte)getCellValue(r,c);
-//                b++;
-//            }
-//        }
-//        return byteArr;
-//    }
-//
-//    @Override
-//    public boolean equals(Object o) {
-//        if (this == o) return true;
-//        if (o == null || getClass() != o.getClass()) return false;
-//        Maze maze = (Maze) o;
-//        return rows == maze.rows && columns == maze.columns && Arrays.equals(mazeArr, maze.mazeArr) && StartPoint.equals(maze.StartPoint) && EndPoint.equals(maze.EndPoint);
-//    }
-//
-//    @Override
-//    public int hashCode() {
-//        int result = Objects.hash(rows, columns, StartPoint, EndPoint);
-//        result = 31 * result + Arrays.hashCode(mazeArr);
-//        return result;
-//    }
+    /**
+     * Constructs a maze with a specific size and a known start and goal position.
+     *
+     * @param size The size of the maze (both rows and columns).
+     * @param goalPosition The goal position in the maze.
+     */
+    public Maze(int size, Position goalPosition) {
+        this(size, size); // Create a square maze of size x size
+        setGoalPosition(goalPosition);
+        setStartPosition(new Position(0, 0)); // Assuming start position is always (0, 0) for testing
+    }
 
 
 }

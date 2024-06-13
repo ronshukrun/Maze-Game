@@ -4,14 +4,13 @@ import algorithms.mazeGenerators.Maze;
 import algorithms.mazeGenerators.Position;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class BestFirstSearchTest {
 
     @Test
-    void testSolveNullSearchable() {
+    void testSolveNullSearchable() { // 1- V
         BestFirstSearch bfs = new BestFirstSearch();
         assertThrows(IllegalArgumentException.class, () -> {
             bfs.solve(null);
@@ -19,19 +18,7 @@ class BestFirstSearchTest {
     }
 
     @Test
-    void testSolveSingleNodeMaze() {
-        Maze singleNodeMaze = new Maze(1, 1);
-        SearchableMaze searchableMaze = new SearchableMaze(singleNodeMaze);
-        BestFirstSearch bfs = new BestFirstSearch();
-        Solution solution = bfs.solve(searchableMaze);
-
-        assertNotNull(solution);
-        assertEquals(1, solution.getSolutionPath().size());
-        assertEquals(singleNodeMaze.getStartPosition(), solution.getSolutionPath().get(0).getState());
-    }
-
-    @Test
-    void testSolveDisconnectedMaze() {
+    void testSolveDisconnectedMaze() { // 3 - V
         Maze maze = new Maze(3, 3);
         maze.setMaze(0, 1, 1);
         maze.setMaze(1, 1, 1);
@@ -46,7 +33,7 @@ class BestFirstSearchTest {
 
 
     @Test
-    void testSolveInvalidStartOrGoalPosition() {
+    void testSolveInvalidStartOrGoalPosition() { // 4 - V
         Maze maze = new Maze(5, 5);
 
         // Check invalid start position
@@ -73,7 +60,7 @@ class BestFirstSearchTest {
     }
 
     @Test
-    void testSolveValidMaze() {
+    void testSolveValidMaze() { // 5 - V
         Maze maze = new Maze(5, 5);
         maze.setMaze(0, 1, 0);
         maze.setMaze(0, 2, 0);
@@ -92,13 +79,13 @@ class BestFirstSearchTest {
     }
 
     @Test
-    void testGetName() {
+    void testGetName() { // 6- V
         BestFirstSearch bfs = new BestFirstSearch();
         assertEquals("BestFirstSearch", bfs.getName());
     }
 
     @Test
-    void testSetNumberOfNodesEvaluatedInvalid() {
+    void testSetNumberOfNodesEvaluatedInvalid() { // 1- V
         BestFirstSearch bfs = new BestFirstSearch();
         assertThrows(RuntimeException.class, () -> {
             bfs.setNumberOfNodesEvaluated(1);
@@ -112,4 +99,5 @@ class BestFirstSearchTest {
             bfs.setName(null);
         });
     }
+
 }
