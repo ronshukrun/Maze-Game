@@ -4,13 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f5f90e17-378a-42b7-b5dc-724b24bcec80" name="Changes" comment="zxdfs">
+    <list default="true" id="f5f90e17-378a-42b7-b5dc-724b24bcec80" name="Changes" comment="open algorithms.mazeGenerators files">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/algorithms/mazeGenerators/SimpleMazeGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/algorithms/mazeGenerators/SimpleMazeGenerator.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -28,7 +37,7 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/USER/ATP-Project-PartA",
+    "last_opened_file_path": "C:/Users/USER/Desktop/Ben Gurion/second year/semester D/code/ATP-PartA",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -54,7 +63,7 @@
       <option name="presentableId" value="Default" />
       <updated>1718097875857</updated>
       <workItem from="1718097877115" duration="6000" />
-      <workItem from="1718289324169" duration="1430000" />
+      <workItem from="1718289324169" duration="4256000" />
     </task>
     <task id="LOCAL‎-00001" summary="zxdfs">
       <option name="closed" value="true" />
@@ -64,7 +73,23 @@
       <option name="project" value="LOCAL‎" />
       <updated>1718289373763</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL‎-00002" summary="start project">
+      <option name="closed" value="true" />
+      <created>1718298738330</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL‎-00002" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1718298738330</updated>
+    </task>
+    <task id="LOCAL‎-00003" summary="open algorithms.mazeGenerators files">
+      <option name="closed" value="true" />
+      <created>1718300678619</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL‎-00003" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1718300678619</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -72,6 +97,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="zxdfs" />
-    <option name="LAST_COMMIT_MESSAGE" value="zxdfs" />
+    <MESSAGE value="start project" />
+    <MESSAGE value="open algorithms.mazeGenerators files" />
+    <option name="LAST_COMMIT_MESSAGE" value="open algorithms.mazeGenerators files" />
   </component>
 </project>
