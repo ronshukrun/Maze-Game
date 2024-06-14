@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f5f90e17-378a-42b7-b5dc-724b24bcec80" name="Changes" comment="open algorithms.mazeGenerators files">
-      <change beforePath="$PROJECT_DIR$/src/algorithms/mazeGenerators/SimpleMazeGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/algorithms/mazeGenerators/SimpleMazeGenerator.java" afterDir="false" />
-    </list>
+    <list default="true" id="f5f90e17-378a-42b7-b5dc-724b24bcec80" name="Changes" comment="MyMazeGenerator&#10;SimpleMazeGenerator" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -88,7 +86,14 @@
       <option name="project" value="LOCAL‎" />
       <updated>1718300678619</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL‎-00004" summary="MyMazeGenerator&#10;SimpleMazeGenerator">
+      <created>1718343322999</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL‎-00004" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1718343322999</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -98,6 +103,7 @@
     <MESSAGE value="zxdfs" />
     <MESSAGE value="start project" />
     <MESSAGE value="open algorithms.mazeGenerators files" />
-    <option name="LAST_COMMIT_MESSAGE" value="open algorithms.mazeGenerators files" />
+    <MESSAGE value="MyMazeGenerator&#10;SimpleMazeGenerator" />
+    <option name="LAST_COMMIT_MESSAGE" value="MyMazeGenerator&#10;SimpleMazeGenerator" />
   </component>
 </project>
