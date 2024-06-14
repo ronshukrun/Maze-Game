@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f5f90e17-378a-42b7-b5dc-724b24bcec80" name="Changes" comment="added all search package files" />
+    <list default="true" id="f5f90e17-378a-42b7-b5dc-724b24bcec80" name="Changes" comment="Solution&#10;ISearchable&#10;ISearchingAlgorithm&#10;MazeState&#10;SearchableMaze&#10;Solution">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -61,7 +63,7 @@
       <option name="presentableId" value="Default" />
       <updated>1718097875857</updated>
       <workItem from="1718097877115" duration="6000" />
-      <workItem from="1718289324169" duration="6369000" />
+      <workItem from="1718289324169" duration="8072000" />
     </task>
     <task id="LOCAL‎-00001" summary="zxdfs">
       <option name="closed" value="true" />
@@ -119,7 +121,15 @@
       <option name="project" value="LOCAL‎" />
       <updated>1718344179647</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL‎-00008" summary="Solution&#10;ISearchable&#10;ISearchingAlgorithm&#10;MazeState&#10;SearchableMaze&#10;Solution">
+      <option name="closed" value="true" />
+      <created>1718348271666</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL‎-00008" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1718348271666</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -132,6 +142,7 @@
     <MESSAGE value="AMazeGenerator&#10;EmptyMazeGenerator&#10;IMazeGenerator&#10;Maze&#10;Position" />
     <MESSAGE value="RunMazeGenerator" />
     <MESSAGE value="added all search package files" />
-    <option name="LAST_COMMIT_MESSAGE" value="added all search package files" />
+    <MESSAGE value="Solution&#10;ISearchable&#10;ISearchingAlgorithm&#10;MazeState&#10;SearchableMaze&#10;Solution" />
+    <option name="LAST_COMMIT_MESSAGE" value="Solution&#10;ISearchable&#10;ISearchingAlgorithm&#10;MazeState&#10;SearchableMaze&#10;Solution" />
   </component>
 </project>
