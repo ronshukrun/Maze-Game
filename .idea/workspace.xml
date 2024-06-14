@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f5f90e17-378a-42b7-b5dc-724b24bcec80" name="Changes" comment="open algorithms.mazeGenerators files">
+    <list default="true" id="f5f90e17-378a-42b7-b5dc-724b24bcec80" name="Changes" comment="AMazeGenerator&#10;EmptyMazeGenerator&#10;IMazeGenerator&#10;Maze&#10;Position">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/algorithms/mazeGenerators/SimpleMazeGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/algorithms/mazeGenerators/SimpleMazeGenerator.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,7 +62,7 @@
       <option name="presentableId" value="Default" />
       <updated>1718097875857</updated>
       <workItem from="1718097877115" duration="6000" />
-      <workItem from="1718289324169" duration="4256000" />
+      <workItem from="1718289324169" duration="5463000" />
     </task>
     <task id="LOCAL‎-00001" summary="zxdfs">
       <option name="closed" value="true" />
@@ -89,7 +88,15 @@
       <option name="project" value="LOCAL‎" />
       <updated>1718300678619</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL‎-00004" summary="AMazeGenerator&#10;EmptyMazeGenerator&#10;IMazeGenerator&#10;Maze&#10;Position">
+      <option name="closed" value="true" />
+      <created>1718302549728</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL‎-00004" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1718302549728</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -99,6 +106,7 @@
     <MESSAGE value="zxdfs" />
     <MESSAGE value="start project" />
     <MESSAGE value="open algorithms.mazeGenerators files" />
-    <option name="LAST_COMMIT_MESSAGE" value="open algorithms.mazeGenerators files" />
+    <MESSAGE value="AMazeGenerator&#10;EmptyMazeGenerator&#10;IMazeGenerator&#10;Maze&#10;Position" />
+    <option name="LAST_COMMIT_MESSAGE" value="AMazeGenerator&#10;EmptyMazeGenerator&#10;IMazeGenerator&#10;Maze&#10;Position" />
   </component>
 </project>
