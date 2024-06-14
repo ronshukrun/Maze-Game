@@ -5,7 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f5f90e17-378a-42b7-b5dc-724b24bcec80" name="Changes" comment="AMazeGenerator&#10;EmptyMazeGenerator&#10;IMazeGenerator&#10;Maze&#10;Position">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/RunMazeGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/algorithms/mazeGenerators/IMazeGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/algorithms/mazeGenerators/IMazeGenerator.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,6 +35,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.RunMazeGenerator.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/USER/Desktop/Ben Gurion/second year/semester D/code/ATP-PartA",
@@ -62,7 +64,7 @@
       <option name="presentableId" value="Default" />
       <updated>1718097875857</updated>
       <workItem from="1718097877115" duration="6000" />
-      <workItem from="1718289324169" duration="5463000" />
+      <workItem from="1718289324169" duration="5929000" />
     </task>
     <task id="LOCAL‎-00001" summary="zxdfs">
       <option name="closed" value="true" />
@@ -96,7 +98,15 @@
       <option name="project" value="LOCAL‎" />
       <updated>1718302549728</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL‎-00005" summary="AMazeGenerator&#10;EmptyMazeGenerator&#10;IMazeGenerator&#10;Maze&#10;Position">
+      <option name="closed" value="true" />
+      <created>1718343489434</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL‎-00005" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1718343489435</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
