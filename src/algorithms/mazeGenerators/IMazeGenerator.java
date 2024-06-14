@@ -6,4 +6,3 @@ public interface IMazeGenerator {
     public long measureAlgorithmTimeMillis(int rows, int columns);
 
 }
-}
