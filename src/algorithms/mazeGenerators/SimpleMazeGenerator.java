@@ -12,6 +12,7 @@ public class SimpleMazeGenerator extends AMazeGenerator{
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < columns; j++) {
                 simpleMaze.setMaze(i, j, Math.random() < 0.5 ? 0 : 1);
+
             }
         }
         // Set the borders to be open paths (0)
