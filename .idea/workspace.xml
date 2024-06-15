@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f5f90e17-378a-42b7-b5dc-724b24bcec80" name="Changes" comment="xml">
+    <list default="true" id="f5f90e17-378a-42b7-b5dc-724b24bcec80" name="Changes" comment="BestFirstSearch&#10;BreadthFirstSearch">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -35,6 +35,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.RunMazeGenerator.executor": "Run",
+    "Application.RunSearchOnMaze.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/USER/Desktop/Ben Gurion/second year/semester D/code/ATP-PartA",
@@ -43,6 +44,9 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -63,7 +67,7 @@
       <option name="presentableId" value="Default" />
       <updated>1718097875857</updated>
       <workItem from="1718097877115" duration="6000" />
-      <workItem from="1718289324169" duration="9377000" />
+      <workItem from="1718289324169" duration="9936000" />
     </task>
     <task id="LOCAL‎-00001" summary="zxdfs">
       <option name="closed" value="true" />
@@ -137,7 +141,23 @@
       <option name="project" value="LOCAL‎" />
       <updated>1718352439813</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL‎-00010" summary="BestFirstSearch&#10;BreadthFirstSearch">
+      <option name="closed" value="true" />
+      <created>1718441055265</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL‎-00010" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1718441055265</updated>
+    </task>
+    <task id="LOCAL‎-00011" summary="BestFirstSearch&#10;BreadthFirstSearch">
+      <option name="closed" value="true" />
+      <created>1718441259176</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL‎-00011" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1718441259176</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -152,6 +172,7 @@
     <MESSAGE value="added all search package files" />
     <MESSAGE value="Solution&#10;ISearchable&#10;ISearchingAlgorithm&#10;MazeState&#10;SearchableMaze&#10;Solution" />
     <MESSAGE value="xml" />
-    <option name="LAST_COMMIT_MESSAGE" value="xml" />
+    <MESSAGE value="BestFirstSearch&#10;BreadthFirstSearch" />
+    <option name="LAST_COMMIT_MESSAGE" value="BestFirstSearch&#10;BreadthFirstSearch" />
   </component>
 </project>
