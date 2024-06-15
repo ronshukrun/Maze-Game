@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f5f90e17-378a-42b7-b5dc-724b24bcec80" name="Changes" comment="BestFirstSearchTest">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ATP-PartA.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ATP-PartA.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JUnit/algorithms/search/BestFirstSearchTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/JUnit/algorithms/search/BestFirstSearchTest.java" afterDir="false" />
-    </list>
+    <list default="true" id="f5f90e17-378a-42b7-b5dc-724b24bcec80" name="Changes" comment="JUnit" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -142,7 +138,7 @@
       <option name="presentableId" value="Default" />
       <updated>1718097875857</updated>
       <workItem from="1718097877115" duration="6000" />
-      <workItem from="1718289324169" duration="10796000" />
+      <workItem from="1718289324169" duration="11455000" />
     </task>
     <task id="LOCAL‎-00001" summary="zxdfs">
       <option name="closed" value="true" />
@@ -240,7 +236,15 @@
       <option name="project" value="LOCAL‎" />
       <updated>1718441712195</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL‎-00013" summary="JUnit">
+      <option name="closed" value="true" />
+      <created>1718454995851</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL‎-00013" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1718454995851</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -257,6 +261,7 @@
     <MESSAGE value="xml" />
     <MESSAGE value="BestFirstSearch&#10;BreadthFirstSearch" />
     <MESSAGE value="BestFirstSearchTest" />
-    <option name="LAST_COMMIT_MESSAGE" value="BestFirstSearchTest" />
+    <MESSAGE value="JUnit" />
+    <option name="LAST_COMMIT_MESSAGE" value="JUnit" />
   </component>
 </project>
