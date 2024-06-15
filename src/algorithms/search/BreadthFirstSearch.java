@@ -6,7 +6,6 @@ import java.util.Queue;
 
 public class BreadthFirstSearch extends ASearchingAlgorithm {
 
-
     public BreadthFirstSearch() {
         super();
         this.setName("BreadthFirstSearch");
