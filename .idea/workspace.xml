@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f5f90e17-378a-42b7-b5dc-724b24bcec80" name="Changes" comment="BestFirstSearch&#10;BreadthFirstSearch">
+    <list default="true" id="f5f90e17-378a-42b7-b5dc-724b24bcec80" name="Changes" comment="BestFirstSearchTest">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ATP-PartA.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ATP-PartA.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JUnit/algorithms/search/BestFirstSearchTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/JUnit/algorithms/search/BestFirstSearchTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,6 +19,7 @@
       <list>
         <option value="Interface" />
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -36,7 +39,16 @@
   "keyToString": {
     "Application.RunMazeGenerator.executor": "Run",
     "Application.RunSearchOnMaze.executor": "Run",
+    "Downloaded.Files.Path.Enabled": "false",
+    "JUnit.BestFirstSearchTest.executor": "Run",
+    "JUnit.BestFirstSearchTest.testSolveDisconnectedMaze.executor": "Run",
+    "JUnit.BestFirstSearchTest.testSolveInvalidStartOrGoalPosition.executor": "Run",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/USER/Desktop/Ben Gurion/second year/semester D/code/ATP-PartA",
     "node.js.detected.package.eslint": "true",
@@ -50,6 +62,69 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="algorithms.search" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="BestFirstSearchTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ATP-PartA" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="algorithms.search.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="algorithms.search" />
+      <option name="MAIN_CLASS_NAME" value="algorithms.search.BestFirstSearchTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BestFirstSearchTest.testSolveDisconnectedMaze" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
+      <module name="ATP-PartA" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="algorithms.search.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="algorithms.search" />
+      <option name="MAIN_CLASS_NAME" value="algorithms.search.BestFirstSearchTest" />
+      <option name="METHOD_NAME" value="testSolveDisconnectedMaze" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BestFirstSearchTest.testSolveInvalidStartOrGoalPosition" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ATP-PartA" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="algorithms.search.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="algorithms.search" />
+      <option name="MAIN_CLASS_NAME" value="algorithms.search.BestFirstSearchTest" />
+      <option name="METHOD_NAME" value="testSolveInvalidStartOrGoalPosition" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.BestFirstSearchTest.testSolveInvalidStartOrGoalPosition" />
+        <item itemvalue="JUnit.BestFirstSearchTest" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -67,7 +142,7 @@
       <option name="presentableId" value="Default" />
       <updated>1718097875857</updated>
       <workItem from="1718097877115" duration="6000" />
-      <workItem from="1718289324169" duration="9936000" />
+      <workItem from="1718289324169" duration="10796000" />
     </task>
     <task id="LOCAL‎-00001" summary="zxdfs">
       <option name="closed" value="true" />
@@ -157,7 +232,15 @@
       <option name="project" value="LOCAL‎" />
       <updated>1718441259176</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL‎-00012" summary="BestFirstSearchTest">
+      <option name="closed" value="true" />
+      <created>1718441712195</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL‎-00012" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1718441712195</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -173,6 +256,7 @@
     <MESSAGE value="Solution&#10;ISearchable&#10;ISearchingAlgorithm&#10;MazeState&#10;SearchableMaze&#10;Solution" />
     <MESSAGE value="xml" />
     <MESSAGE value="BestFirstSearch&#10;BreadthFirstSearch" />
-    <option name="LAST_COMMIT_MESSAGE" value="BestFirstSearch&#10;BreadthFirstSearch" />
+    <MESSAGE value="BestFirstSearchTest" />
+    <option name="LAST_COMMIT_MESSAGE" value="BestFirstSearchTest" />
   </component>
 </project>
