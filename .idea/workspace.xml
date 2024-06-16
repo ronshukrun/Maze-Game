@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f5f90e17-378a-42b7-b5dc-724b24bcec80" name="Changes" comment="GeneralCheckingFunctions" />
+    <list default="true" id="f5f90e17-378a-42b7-b5dc-724b24bcec80" name="Changes" comment="Docketing DepthFirstSearch">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/algorithms/search/MazeState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/algorithms/search/MazeState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/algorithms/search/SearchableMaze.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/algorithms/search/SearchableMaze.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -138,7 +142,7 @@
       <option name="presentableId" value="Default" />
       <updated>1718097875857</updated>
       <workItem from="1718097877115" duration="6000" />
-      <workItem from="1718289324169" duration="12175000" />
+      <workItem from="1718289324169" duration="13630000" />
     </task>
     <task id="LOCAL‎-00001" summary="zxdfs">
       <option name="closed" value="true" />
@@ -252,7 +256,39 @@
       <option name="project" value="LOCAL‎" />
       <updated>1718455126669</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL‎-00015" summary="Docketing ASearchingAlgorithm">
+      <option name="closed" value="true" />
+      <created>1718530189889</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL‎-00015" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1718530189889</updated>
+    </task>
+    <task id="LOCAL‎-00016" summary="Docketing AState">
+      <option name="closed" value="true" />
+      <created>1718530586200</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL‎-00016" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1718530586200</updated>
+    </task>
+    <task id="LOCAL‎-00017" summary="Docketing BestFirstSearch&#10;and BreadthFirstSearch">
+      <option name="closed" value="true" />
+      <created>1718530790179</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL‎-00017" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1718530790179</updated>
+    </task>
+    <task id="LOCAL‎-00018" summary="Docketing DepthFirstSearch">
+      <option name="closed" value="true" />
+      <created>1718531034275</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL‎-00018" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1718531034275</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -271,6 +307,10 @@
     <MESSAGE value="BestFirstSearchTest" />
     <MESSAGE value="JUnit" />
     <MESSAGE value="GeneralCheckingFunctions" />
-    <option name="LAST_COMMIT_MESSAGE" value="GeneralCheckingFunctions" />
+    <MESSAGE value="Docketing ASearchingAlgorithm" />
+    <MESSAGE value="Docketing AState" />
+    <MESSAGE value="Docketing BestFirstSearch&#10;and BreadthFirstSearch" />
+    <MESSAGE value="Docketing DepthFirstSearch" />
+    <option name="LAST_COMMIT_MESSAGE" value="Docketing DepthFirstSearch" />
   </component>
 </project>
