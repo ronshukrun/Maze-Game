@@ -1,13 +1,17 @@
 package algorithms.search;
 
-import java.util.ArrayList;
-
+/**
+ * An abstract class representing a searching algorithm.
+ */
 public abstract class ASearchingAlgorithm implements ISearchingAlgorithm {
 
     private String name;
     private int nodesNum;
 
-
+    /**
+     * Constructor for the abstract class ASearchingAlgorithm.
+     * Initializes the algorithm's name and sets the number of evaluated nodes to -1.
+     */
     public ASearchingAlgorithm() {
         this.name = "ASearchingAlgorithm";
         this.nodesNum = -1;
@@ -34,22 +38,4 @@ public abstract class ASearchingAlgorithm implements ISearchingAlgorithm {
         this.nodesNum = nodesNum;
     }
 
-    public static Solution getSolutionPath(AState startState, AState goalState) {
-        if (startState == null || goalState == null) {
-            throw new IllegalArgumentException("Start state or goal state is null.");
-        }
-
-        ArrayList<AState> solutionPath = new ArrayList<>();
-        AState currentState = goalState;
-
-        while (currentState != null) {
-            solutionPath.add(0, currentState);
-            if (currentState.equalsState(startState)) {
-                break;
-            }
-            currentState = currentState.getPrevState();
-        }
-
-        return new Solution(solutionPath);
-    }
 }
