@@ -4,15 +4,27 @@ import algorithms.mazeGenerators.Position;
 import java.util.ArrayList;
 import java.util.PriorityQueue;
 import java.util.Comparator;
-
+/**
+ * BestFirstSearch is an implementation of the Best-First Search algorithm
+ * which extends the BreadthFirstSearch class. This algorithm uses a priority queue
+ * to explore the most promising nodes based on their cost, calculated using a heuristic.
+ */
 public class BestFirstSearch extends BreadthFirstSearch {
-
-
+    /**
+     * Constructor for BestFirstSearch.
+     * Sets the name of the search algorithm to "BestFirstSearch".
+     */
     public BestFirstSearch() {
         super();
         this.setName("BestFirstSearch");
     }
-
+    /**
+     * Solves the given ISearchable problem using the Best-First Search algorithm.
+     *
+     * @param searchable the ISearchable problem to be solved
+     * @return a Solution object containing the path from the start state to the goal state, or null if no solution is found
+     * @throws IllegalArgumentException if the provided ISearchable is null
+     */
     @Override
     public Solution solve(ISearchable searchable) {
         if (searchable == null) {
@@ -71,7 +83,13 @@ public class BestFirstSearch extends BreadthFirstSearch {
         return null; // No solution found
     }
 
-
+    /**
+     * Calculates the cost between two states.
+     *
+     * @param fromState the state from which the cost is calculated
+     * @param toState the state to which the cost is calculated
+     * @return the cost between the two states
+     */
     private double calculateCost(AState fromState, AState toState) {
         Position fromPos = (Position) fromState.getState();
         Position toPos = (Position) toState.getState();

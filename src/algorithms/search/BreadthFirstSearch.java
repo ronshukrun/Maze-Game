@@ -3,14 +3,27 @@ package algorithms.search;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
-
+/**
+ * BreadthFirstSearch is an implementation of the Breadth-First Search algorithm.
+ * This algorithm explores all the nodes at the present depth level before moving on to the nodes at the next depth level.
+ */
 public class BreadthFirstSearch extends ASearchingAlgorithm {
-
+    /**
+     * Constructor for BreadthFirstSearch.
+     * Sets the name of the search algorithm to "BreadthFirstSearch".
+     */
     public BreadthFirstSearch() {
         super();
         this.setName("BreadthFirstSearch");
     }
-
+    /**
+     * Solves the given ISearchable problem using the Breadth-First Search algorithm.
+     *
+     * @param searchable the ISearchable problem to be solved
+     * @return a Solution object containing the path from the start state to the goal state,
+     *         or null if no solution is found
+     * @throws IllegalArgumentException if the provided ISearchable is null
+     */
     @Override
     public Solution solve(ISearchable searchable) {
         if (searchable == null) {
