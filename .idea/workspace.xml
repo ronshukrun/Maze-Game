@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f5f90e17-378a-42b7-b5dc-724b24bcec80" name="Changes" comment="Docketing MazeState, SearchableMaze, Solution">
+    <list default="true" id="f5f90e17-378a-42b7-b5dc-724b24bcec80" name="Changes" comment="Docketing AMazeGenerator, EmptyMazeGenerator,Maze, MyMazeGenerator, Position, SimpleMazeGenerator">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/algorithms/mazeGenerators/AMazeGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/algorithms/mazeGenerators/AMazeGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/algorithms/mazeGenerators/EmptyMazeGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/algorithms/mazeGenerators/EmptyMazeGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/algorithms/mazeGenerators/Maze.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/algorithms/mazeGenerators/Maze.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/algorithms/mazeGenerators/MyMazeGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/algorithms/mazeGenerators/MyMazeGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JUnit/algorithms/search/BestFirstSearchTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/JUnit/algorithms/search/BestFirstSearchTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,7 +69,7 @@
       <recent name="algorithms.search" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.BestFirstSearchTest.testSolveDisconnectedMaze">
     <configuration name="BestFirstSearchTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ATP-PartA" />
       <extension name="coverage">
@@ -122,8 +119,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.BestFirstSearchTest.testSolveInvalidStartOrGoalPosition" />
         <item itemvalue="JUnit.BestFirstSearchTest" />
+        <item itemvalue="JUnit.BestFirstSearchTest.testSolveInvalidStartOrGoalPosition" />
       </list>
     </recent_temporary>
   </component>
@@ -144,7 +141,7 @@
       <option name="presentableId" value="Default" />
       <updated>1718097875857</updated>
       <workItem from="1718097877115" duration="6000" />
-      <workItem from="1718289324169" duration="15103000" />
+      <workItem from="1718289324169" duration="16874000" />
     </task>
     <task id="LOCAL‎-00001" summary="zxdfs">
       <option name="closed" value="true" />
@@ -298,7 +295,15 @@
       <option name="project" value="LOCAL‎" />
       <updated>1718531831362</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL‎-00020" summary="Docketing AMazeGenerator, EmptyMazeGenerator,Maze, MyMazeGenerator, Position, SimpleMazeGenerator">
+      <option name="closed" value="true" />
+      <created>1718533315930</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL‎-00020" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1718533315930</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -322,6 +327,7 @@
     <MESSAGE value="Docketing BestFirstSearch&#10;and BreadthFirstSearch" />
     <MESSAGE value="Docketing DepthFirstSearch" />
     <MESSAGE value="Docketing MazeState, SearchableMaze, Solution" />
-    <option name="LAST_COMMIT_MESSAGE" value="Docketing MazeState, SearchableMaze, Solution" />
+    <MESSAGE value="Docketing AMazeGenerator, EmptyMazeGenerator,Maze, MyMazeGenerator, Position, SimpleMazeGenerator" />
+    <option name="LAST_COMMIT_MESSAGE" value="Docketing AMazeGenerator, EmptyMazeGenerator,Maze, MyMazeGenerator, Position, SimpleMazeGenerator" />
   </component>
 </project>
