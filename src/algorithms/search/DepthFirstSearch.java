@@ -3,15 +3,28 @@ package algorithms.search;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
-
+/**
+ * DepthFirstSearch is an implementation of the Depth-First Search algorithm.
+ * This algorithm explores as far as possible along each branch before backtracking.
+ */
 public class DepthFirstSearch extends ASearchingAlgorithm {
-
+    /**
+     * Constructor for DepthFirstSearch.
+     * Sets the name of the search algorithm to "DepthFirstSearch".
+     */
     public DepthFirstSearch() {
         super();
         this.setName("DepthFirstSearch");
     }
 
-
+    /**
+     * Solves the given ISearchable problem using the Depth-First Search algorithm.
+     *
+     * @param searchable the ISearchable problem to be solved
+     * @return a Solution object containing the path from the start state to the goal state,
+     *         or an empty solution if no solution is found
+     * @throws IllegalArgumentException if the provided ISearchable is null
+     */
     @Override
     public Solution solve(ISearchable searchable) {
         if (searchable == null) {
