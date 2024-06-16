@@ -4,6 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+/**
+ * Maze represents a maze with a specified number of rows and columns.
+ * It includes methods to set and get the values of the maze cells,
+ * as well as to set and get the start and goal positions.
+ */
 public class Maze {
 
     private int rows;
@@ -12,6 +17,11 @@ public class Maze {
     private Position startPosition;
     private Position goalPosition;
 
+    /**
+     * Constructs a Maze with the specified number of rows and columns.
+     * @param rows the number of rows in the maze
+     * @param columns the number of columns in the maze
+     */
     public Maze(int rows, int columns) {
         this.rows = rows;
         this.columns = columns;
@@ -25,17 +35,17 @@ public class Maze {
         setStartPosition(p1);
         setGoalPosition(p2);
     }
-
+    //Sets the value of a specific cell in the maze.
     public void setMaze(int row, int column, int value) {this.maze[row][column] = value;}
 
-
+    //Sets the start position in the maze.
     public void setStartPosition(Position startPosition) {
         if (startPosition.getRowIndex() < 0 || startPosition.getRowIndex() >= maze.length || startPosition.getColumnIndex() < 0 || startPosition.getColumnIndex() >= maze[0].length) {
             throw new IllegalArgumentException("Invalid start position");
         }
         this.startPosition = startPosition;
     }
-
+    //Sets the goal position in the maze.
     public void setGoalPosition(Position goalPosition) {
         if (goalPosition.getRowIndex() < 0 || goalPosition.getRowIndex() >= maze.length || goalPosition.getColumnIndex() < 0 || goalPosition.getColumnIndex() >= maze[0].length) {
             throw new IllegalArgumentException("Invalid goal position");
@@ -59,7 +69,12 @@ public class Maze {
 
     public int[][] getMaze() {return maze;}
 
-
+    /**
+     * Generates a random position on the frame (border) of the maze.
+     * @param rows the number of rows in the maze
+     * @param columns the number of columns in the maze
+     * @return the generated frame position
+     */
     public Position generateFramePosition(int rows, int columns) {
         List<Position> framePositions = new ArrayList<>();
         // Add points from the top and bottom rows
@@ -90,7 +105,6 @@ public class Maze {
                 if (i== StartIdxRow && j== StartIdxCol){
                     System.out.print("S");
                 }
-
                 else if (i== GoalIdxRow && j== GoalIdxCol){
                     System.out.print("E");
                 }
@@ -128,11 +142,4 @@ public class Maze {
             System.out.println();
         }
     }
-
-    public Maze(int size, Position goalPosition) {
-        this(size, size); // Create a square maze of size x size
-        setGoalPosition(goalPosition);
-        setStartPosition(new Position(0, 0)); // Assuming start position is always (0, 0) for testing
-    }
-
 }
