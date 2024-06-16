@@ -93,35 +93,7 @@ public class Maze {
         return framePositions.get(index);
     }
 
-    public void print1(){
-        int StartIdxRow = getStartPosition().getRowIndex();
-        int StartIdxCol = getStartPosition().getColumnIndex();
-        int GoalIdxRow = getGoalPosition().getRowIndex();
-        int GoalIdxCol = getGoalPosition().getColumnIndex();
-        System.out.print("{");
-        for (int i=0; i< rows; i++){
-            System.out.print("{");
-            for ( int j=0; j< columns; j++){
-                if (i== StartIdxRow && j== StartIdxCol){
-                    System.out.print("S");
-                }
-                else if (i== GoalIdxRow && j== GoalIdxCol){
-                    System.out.print("E");
-                }
-                else {
-                    System.out.print(maze[i][j] );
-                }
-                if (j!=columns-1){
-                    System.out.print(',');
-                }
-            }
-            if (i!=rows-1)
-                System.out.print("}\n," );
-            else
-                System.out.print("}");
-        }
-        System.out.print("}\n");
-    }
+
     public void print() {
 
         int startRow = getStartPosition().getRowIndex();
