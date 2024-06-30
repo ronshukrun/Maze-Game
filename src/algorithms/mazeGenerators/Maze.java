@@ -1,5 +1,6 @@
 package algorithms.mazeGenerators;
 
+import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -34,6 +35,32 @@ public class Maze {
         }
         setStartPosition(p1);
         setGoalPosition(p2);
+    }
+    public Maze(byte[] byteArray) {
+        ByteBuffer buffer = ByteBuffer.wrap(byteArray);
+
+        // Read dimensions of the maze
+        this.rows = buffer.getShort();
+        this.columns = buffer.getShort();
+
+        // Initialize maze array
+        this.maze = new int[rows][columns];
+
+        // Read maze content
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                maze[i][j] = buffer.get();
+            }
+        }
+
+        // Read start and goal positions
+        int startRow = buffer.getInt();
+        int startCol = buffer.getInt();
+        int goalRow = buffer.getInt();
+        int goalCol = buffer.getInt();
+
+        this.startPosition = new Position(startRow, startCol);
+        this.goalPosition = new Position(goalRow, goalCol);
     }
     //Sets the value of a specific cell in the maze.
     public void setMaze(int row, int column, int value) {this.maze[row][column] = value;}
@@ -114,4 +141,88 @@ public class Maze {
             System.out.println();
         }
     }
+    ///opt1
+    /**
+     * Converts the maze to a byte array representation.
+     *
+     * @return the byte array representing the maze
+     */
+//    public byte[] toByteArray() {
+//        // Calculate total size of byte array needed
+//        int totalSize = 20 + (rows * columns); // 20 bytes for dimensions and positions
+//
+//        // Create byte array
+//        byte[] byteArray = new byte[totalSize];
+//
+//        // Store dimensions of the maze
+//        byteArray[0] = (byte) (rows >> 8);
+//        byteArray[1] = (byte) rows;
+//        byteArray[2] = (byte) (columns >> 8);
+//        byteArray[3] = (byte) columns;
+//
+//        // Store maze content
+//        int index = 4;
+//        for (int i = 0; i < rows; i++) {
+//            for (int j = 0; j < columns; j++) {
+//                byteArray[index++] = (byte) maze[i][j];
+//            }
+//        }
+//
+//        // Store start and goal positions
+//        byteArray[index++] = (byte) (startPosition.getRowIndex() >> 24);
+//        byteArray[index++] = (byte) (startPosition.getRowIndex() >> 16);
+//        byteArray[index++] = (byte) (startPosition.getRowIndex() >> 8);
+//        byteArray[index++] = (byte) startPosition.getRowIndex();
+//        byteArray[index++] = (byte) (startPosition.getColumnIndex() >> 24);
+//        byteArray[index++] = (byte) (startPosition.getColumnIndex() >> 16);
+//        byteArray[index++] = (byte) (startPosition.getColumnIndex() >> 8);
+//        byteArray[index++] = (byte) startPosition.getColumnIndex();
+//        byteArray[index++] = (byte) (goalPosition.getRowIndex() >> 24);
+//        byteArray[index++] = (byte) (goalPosition.getRowIndex() >> 16);
+//        byteArray[index++] = (byte) (goalPosition.getRowIndex() >> 8);
+//        byteArray[index++] = (byte) goalPosition.getRowIndex();
+//        byteArray[index++] = (byte) (goalPosition.getColumnIndex() >> 24);
+//        byteArray[index++] = (byte) (goalPosition.getColumnIndex() >> 16);
+//        byteArray[index++] = (byte) (goalPosition.getColumnIndex() >> 8);
+//        byteArray[index++] = (byte) goalPosition.getColumnIndex();
+//
+//        return byteArray;
+//    }
+    /// opt2
+    public byte[] toByteArray() {
+        List<Byte> out = new ArrayList<Byte>();
+        byte[] rowInByte = ByteBuffer.allocate(4).putInt(rows).array();
+        byte[] colInByte = ByteBuffer.allocate(4).putInt(columns).array();
+        byte[] enterPosX = ByteBuffer.allocate(4).putInt(startPosition.getRowIndex()).array();
+        byte[] enterPosY = ByteBuffer.allocate(4).putInt(startPosition.getColumnIndex()).array();
+        byte[] exitPosX = ByteBuffer.allocate(4).putInt(goalPosition.getRowIndex()).array();
+        byte[] exitPosY = ByteBuffer.allocate(4).putInt(goalPosition.getColumnIndex()).array();
+        ArrayList<Integer> list = new ArrayList<Integer>();
+        for (int[] array : maze) {
+            for (int i : array) {
+                list.add(i);
+            }
+        }
+        ArrayToList(rowInByte,out);
+        ArrayToList(colInByte,out);
+        ArrayToList(enterPosX,out);
+        ArrayToList(enterPosY,out);
+        ArrayToList(exitPosX,out);
+        ArrayToList(exitPosY,out);
+
+        for(int i :list)
+            out.add((Integer.valueOf(i).byteValue()));
+
+        byte[] sul = new byte[out.size()];
+        for(int i= 0 ; i<sul.length;i++)
+            sul[i]=out.get(i);
+        return sul;
+    }
+    private void ArrayToList( byte[] b , List<Byte> lst){
+        for(int i = 0; i< b.length;i++){
+            lst.add(b[i]);
+        }
+    }
+
+
 }
