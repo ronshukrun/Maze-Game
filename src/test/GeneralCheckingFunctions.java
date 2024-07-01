@@ -14,5 +14,8 @@ public class GeneralCheckingFunctions {
         String githubLink = "https://github.com/ronshukrun/ATP-Project-PartA";
         return githubLink;
     }
+<<<<<<< HEAD
 //fsag
+=======
+>>>>>>> f3c6356ab4a43a594505d79174002b0a867042a0
 }

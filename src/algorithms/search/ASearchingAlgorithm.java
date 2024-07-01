@@ -1,7 +1,10 @@
 package algorithms.search;
 
+<<<<<<< HEAD
 import java.util.ArrayList;
 
+=======
+>>>>>>> f3c6356ab4a43a594505d79174002b0a867042a0
 /**
  * An abstract class representing a searching algorithm.
  */
@@ -40,6 +43,7 @@ public abstract class ASearchingAlgorithm implements ISearchingAlgorithm {
         this.nodesNum = nodesNum;
     }
 
+<<<<<<< HEAD
     /**
      * Restores the solution path found between two states.
      * @param startState the starting state of the problem
@@ -66,4 +70,6 @@ public abstract class ASearchingAlgorithm implements ISearchingAlgorithm {
 
         return new Solution(solutionPath);
     }
+=======
+>>>>>>> f3c6356ab4a43a594505d79174002b0a867042a0
 }
