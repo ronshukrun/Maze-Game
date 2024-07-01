@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f5f90e17-378a-42b7-b5dc-724b24bcec80" name="Changes" comment="SimpleDecompressorInputStream&#10;RunCompressDecompressMaze">
-      <change afterPath="$PROJECT_DIR$/src/test/RunCommunicateWithServers.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="f5f90e17-378a-42b7-b5dc-724b24bcec80" name="Changes" comment="SimpleDecompressorInputStream&#10;RunCommunicateWithServers.java" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -161,7 +158,7 @@
       <updated>1718097875857</updated>
       <workItem from="1718097877115" duration="6000" />
       <workItem from="1718289324169" duration="18676000" />
-      <workItem from="1719673319965" duration="6737000" />
+      <workItem from="1719673319965" duration="7196000" />
     </task>
     <task id="LOCAL‎-00001" summary="zxdfs">
       <option name="closed" value="true" />
@@ -360,7 +357,14 @@
       <option name="project" value="LOCAL‎" />
       <updated>1719773013721</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL‎-00026" summary="SimpleDecompressorInputStream&#10;RunCommunicateWithServers.java">
+      <created>1719773679530</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL‎-00026" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1719773679530</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -390,6 +394,7 @@
     <MESSAGE value="MyCompressorOutputStream&#10;MyDecompressorInputStream&#10;maze" />
     <MESSAGE value="SimpleCompressorOutputStream" />
     <MESSAGE value="SimpleDecompressorInputStream&#10;RunCompressDecompressMaze" />
-    <option name="LAST_COMMIT_MESSAGE" value="SimpleDecompressorInputStream&#10;RunCompressDecompressMaze" />
+    <MESSAGE value="SimpleDecompressorInputStream&#10;RunCommunicateWithServers.java" />
+    <option name="LAST_COMMIT_MESSAGE" value="SimpleDecompressorInputStream&#10;RunCommunicateWithServers.java" />
   </component>
 </project>
