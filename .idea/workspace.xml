@@ -4,7 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f5f90e17-378a-42b7-b5dc-724b24bcec80" name="Changes" comment="SimpleDecompressorInputStream&#10;RunCommunicateWithServers.java" />
+    <list default="true" id="f5f90e17-378a-42b7-b5dc-724b24bcec80" name="Changes" comment="maor">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/savedMaze.maze" beforeDir="false" afterPath="$PROJECT_DIR$/savedMaze.maze" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/IO/MyCompressorOutputStream.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/IO/MyCompressorOutputStream.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/IO/MyDecompressorInputStream.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/IO/MyDecompressorInputStream.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/IO/SimpleDecompressorInputStream.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/IO/SimpleDecompressorInputStream.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/algorithms/mazeGenerators/Maze.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/algorithms/mazeGenerators/Maze.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/RunCompressDecompressMaze.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/RunCompressDecompressMaze.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -36,6 +44,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.RunCompressDecompressMaze.executor": "Run",
     "Application.RunMazeGenerator.executor": "Run",
     "Application.RunSearchOnMaze.executor": "Run",
     "Downloaded.Files.Path.Enabled": "false",
@@ -50,7 +59,7 @@
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/ronshukrun/Desktop/לימודים/ATP-Project-PartB",
+    "last_opened_file_path": "C:/Users/USER/Desktop/cop_APT/ATP-Project-PartB-master",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -159,6 +168,7 @@
       <workItem from="1718097877115" duration="6000" />
       <workItem from="1718289324169" duration="18676000" />
       <workItem from="1719673319965" duration="7196000" />
+      <workItem from="1719817122927" duration="3830000" />
     </task>
     <task id="LOCAL‎-00001" summary="zxdfs">
       <option name="closed" value="true" />
@@ -364,7 +374,23 @@
       <option name="project" value="LOCAL‎" />
       <updated>1719773679530</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL‎-00027" summary="maor">
+      <option name="closed" value="true" />
+      <created>1719817176636</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL‎-00027" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1719817176636</updated>
+    </task>
+    <task id="LOCAL‎-00028" summary="maor">
+      <option name="closed" value="true" />
+      <created>1719817211154</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL‎-00028" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1719817211154</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -395,6 +421,7 @@
     <MESSAGE value="SimpleCompressorOutputStream" />
     <MESSAGE value="SimpleDecompressorInputStream&#10;RunCompressDecompressMaze" />
     <MESSAGE value="SimpleDecompressorInputStream&#10;RunCommunicateWithServers.java" />
-    <option name="LAST_COMMIT_MESSAGE" value="SimpleDecompressorInputStream&#10;RunCommunicateWithServers.java" />
+    <MESSAGE value="maor" />
+    <option name="LAST_COMMIT_MESSAGE" value="maor" />
   </component>
 </project>
