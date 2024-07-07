@@ -20,7 +20,7 @@ public class Client {
 
     public void communicateWithServer() {
         try (Socket serverSocket = new Socket(serverIP, serverPort)) {
-            //System.out.println("Connected to server - IP = " + serverIP + ", Port = " + serverPort);
+            System.out.println(String.format("Client is connected to server (IP: %s, Port: %s)",serverIP,serverPort));
             clientStrategy.clientStrategy(serverSocket.getInputStream(), serverSocket.getOutputStream());
         } catch (IOException e) {
             System.err.println("Error communicating with server: " + e.getMessage());
