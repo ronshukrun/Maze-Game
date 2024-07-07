@@ -15,12 +15,12 @@ public class EmptyMazeGenerator extends AMazeGenerator {
      */
     @Override
     public Maze generate(int rows, int columns) {
-        Maze maze = new Maze(rows, columns);
-        for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < columns; j++) {
-                maze.setMaze(i, j,0);
-            }
+        if ((rows <= 1) || (columns <= 1)) {
+            throw new RuntimeException("The size of the rows and columns should be greater than 2");
         }
+        int[][] mazeArr = new int[rows][columns];
+        Maze maze = new Maze(mazeArr);
         return maze;
+
     }
 }

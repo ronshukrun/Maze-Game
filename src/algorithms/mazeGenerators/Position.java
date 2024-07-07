@@ -1,11 +1,15 @@
 package algorithms.mazeGenerators;
 
 
-//Position represents a specific location in a maze with row and column indices.
-public class Position {
+import java.io.Serializable;
+import java.util.Objects;
 
-    private final int rowIndex;
-    private final int columnIndex;
+//Position represents a specific location in a maze with row and column indices.
+public class Position implements Serializable {
+
+    private static final long serialVersionUID = 1L; // for serialization compatibility
+    private int rowIndex;
+    private int columnIndex;
     /**
      * Constructs a Position with the specified row and column indices.
      * @param rowIndex the row index of the position
@@ -24,6 +28,13 @@ public class Position {
 
     public int getColumnIndex() {return columnIndex;}
 
+
+    public void setRowIndex(int rowIndex) {this.rowIndex = rowIndex;}
+
+
+    public void setColumnIndex(int columnIndex) {this.columnIndex = columnIndex;}
+
+
     @Override
     public String toString() {
         return "{" + rowIndex + "," + columnIndex + "}";
@@ -38,10 +49,14 @@ public class Position {
         return rowIndex == position.rowIndex && columnIndex == position.columnIndex;
     }
 
-    @Override
-    public int hashCode() {
-        int result = rowIndex;
-        result = 31 * result + columnIndex;
-        return result;
-    }
+//    @Override
+//    public int hashCode() {
+//        int result = rowIndex;
+//        result = 31 * result + columnIndex;
+//        return result;
+//    }
+//    @Override
+//    public int hashCode() {
+//        return Objects.hash(rowIndex, columnIndex);
+//    }
 }

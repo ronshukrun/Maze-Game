@@ -4,190 +4,183 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-/**
- * MyMazeGenerator generates a maze using a custom algorithm.
- * It initializes the maze, sets start and goal positions, and generates paths.
- */
-public class MyMazeGenerator extends AMazeGenerator{
+public class MyMazeGenerator extends AMazeGenerator {
 
-    private Maze myMaze;
-    private Position[][] positions;
-    private List<Position> candidates;
-
-    //Constructor for MyMazeGenerator. Initializes the list of candidates.
-    public MyMazeGenerator() {candidates = new ArrayList<>();}
-
-    /**
-     * Generates a maze with the specified number of rows and columns.
-     * @param rows the number of rows in the maze
-     * @param columns the number of columns in the maze
-     * @return the generated maze
-     */
     @Override
     public Maze generate(int rows, int columns) {
-        if (rows < 2) rows = 2;
-        if (columns < 2) columns = 2;
+        if ((rows <= 1) || (columns <= 1)) {
+            throw new RuntimeException("The size of the rows and columns should be greater than 2");
+        }
+        if(rows == 2 && columns == 2){
+            return generate2on2();
+        }
+        int[][] maze = new int[rows][columns];
 
-        myMaze = new Maze(rows, columns);
-        positions = new Position[rows][columns];
-        initializeMaze(rows, columns);
-        candidates.add(myMaze.getStartPosition());
+        for (int i = 0; i < maze.length; i++)
+        {
+            for (int j = 0; j < maze[0].length; j++)
+                maze[i][j] = 1;
+        }
+        //start position
+        maze[0][0] = 0;
+        ArrayList<Position> FrontVal1 = new ArrayList<Position>();
+        Position thisPose = new Position(0, 0);
+        Position[] startPoseNeighbors = findLegalNeighbors(thisPose, maze.length, maze[0].length);
+        for (int i = 0; i < 4; i++)
+        {
+            if (startPoseNeighbors[i] == null)
+                break;
+            if ((maze[startPoseNeighbors[i].getRowIndex()][startPoseNeighbors[i].getColumnIndex()] == 1))
+                FrontVal1.add(startPoseNeighbors[i]);
+        }
 
-        while (!candidates.isEmpty()) {
-            Position currPosition = candidates.get(new Random().nextInt(candidates.size()));
-            if (CanBeChange(currPosition)) {
-                if (CanBeChange(currPosition)) {
-                    myMaze.setMaze(currPosition.getRowIndex(), currPosition.getColumnIndex(), 0);
-                }
-                Position prePosition = getPrePosition(currPosition);
-                breakingWall(prePosition, currPosition);
-                addCandidates(currPosition);
+        while (!(FrontVal1.isEmpty())) {
+            int randomPick = (int) (Math.random() * (FrontVal1.size()));
+            // Random Wall
+            Position randFront = FrontVal1.get(randomPick);
+            ArrayList<Position> BackVal0 = new ArrayList<Position>();
+            Position[] randFrontNeighbors = findLegalNeighbors(randFront, maze.length, maze[0].length);
+
+            for (int i = 0; i < 4; i++)
+            {
+                if (randFrontNeighbors[i] == null)
+                    break;
+                if ((maze[randFrontNeighbors[i].getRowIndex()][randFrontNeighbors[i].getColumnIndex()] == 0))
+                    BackVal0.add(randFrontNeighbors[i]);
+                if ((maze[randFrontNeighbors[i].getRowIndex()][randFrontNeighbors[i].getColumnIndex()] == 1))
+                    FrontVal1.add(randFrontNeighbors[i]);
             }
-            candidates.remove(currPosition);
+
+            int randomNei = (int) (Math.random() * (BackVal0.size()));
+            // choose a random Position from randNeighbor and change the value of the cell between them and the randFront to 0
+            Position randBack = BackVal0.get(randomNei);
+            // updating the values of the wanted Positions
+            updatePositionsVal(randFront, randBack, maze);
+            FrontVal1.remove(randFront);
         }
-        if (rows == 2 && columns == 2)
-            Maze2x2();
-        else EndPosition();
-        return myMaze;
+        FinishMaze(maze);
+        maze[maze.length-1][maze[0].length-1] = 0;
+        Maze newMaze = new Maze(maze);
+        return newMaze;
     }
 
     /**
-     * Initializes the maze by setting all cells to 1 and creating position objects.
-     * @param rows the number of rows in the maze
-     * @param columns the number of columns in the maze
+     * gets a Position, and returns all the Possible legal moves (Positions) from
+     * the specific Position by the row and columns borders
+     * @param position The Specific Position
+     * @param rows The number of rows in the maze
+     * @param columns The number of columns in the maze
+     * @return List of possible Positions (Position[])
      */
-    public void initializeMaze(int rows, int columns) {
-        for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < columns; j++) {
-                myMaze.setMaze(i, j, 1);
-                positions[i][j] = new Position(i, j);
+    public static Position[] findLegalNeighbors(Position position, int rows, int columns) {
+        if (position == null) {
+            throw new RuntimeException("The Position is not valid - null");
+        }
+        if ((position.getRowIndex() < 0) || (position.getColumnIndex() < 0)) {
+            if (!((position.getRowIndex() == -1) && (position.getColumnIndex() == -1)))
+                throw new RuntimeException("One or more of the Position indexes are not legal! Position can't have negative indexes");
+        }
+        if((rows <= 1) || (columns <= 1)) {
+            throw new RuntimeException("The size of the rows and columns should be greater than 2");
+        }
+
+        int NeighborsCounter = 0;
+        Position[] poseArr = new Position[4];
+        if (position.getRowIndex() - 2 >= 0) {
+            poseArr[NeighborsCounter] = new Position(position.getRowIndex() - 2, position.getColumnIndex()); // upper
+            NeighborsCounter++;
+        }
+        if (position.getRowIndex() + 2 < rows) {
+            poseArr[NeighborsCounter] = new Position(position.getRowIndex() + 2, position.getColumnIndex()); // lower
+            NeighborsCounter++;
+        }
+        if (position.getColumnIndex() + 2 < columns) {
+            poseArr[NeighborsCounter] = new Position(position.getRowIndex(), position.getColumnIndex() + 2); // right
+            NeighborsCounter++;
+        }
+        if (position.getColumnIndex() - 2 >= 0) {
+            poseArr[NeighborsCounter] = new Position(position.getRowIndex(), position.getColumnIndex() - 2); // left
+        }
+        return poseArr;
+    }
+
+    /**
+     * Update the values of 2 Positions:
+     * 1. Back Position
+     * 2. the Position between the Front and the Back
+     * @param front The "front" Position
+     * @param back The "back" Position
+     * @param mazeArr The 2D Array representing the Maze
+     */
+    private void updatePositionsVal(Position front, Position back, int[][] mazeArr) {
+        if((front == null) || (back == null) || (mazeArr == null)) {
+            throw new RuntimeException("One of the Arguments supplied is not valid - null");
+        }
+        if((front.getRowIndex() < 0) || (front.getColumnIndex() < 0)) {
+            if(!((front.getRowIndex() == -1) && (front.getColumnIndex() == -1)))
+                throw new RuntimeException("One or more of the Position indexes are not legal! Position can't have negative indexes");
+        }
+        if((back.getRowIndex() < 0) || (back.getColumnIndex() < 0)) {
+            if(!((back.getRowIndex() == -1) && (back.getColumnIndex() == -1)))
+                throw new RuntimeException("One or more of the Position indexes are not legal! Position can't have negative indexes");
+        }
+
+        if (front.getRowIndex() == back.getRowIndex()) {
+            mazeArr[front.getRowIndex()][front.getColumnIndex()] = 0;
+            mazeArr[front.getRowIndex()][(front.getColumnIndex() + back.getColumnIndex()) / 2] = 0;
+        }
+        if (front.getColumnIndex() == back.getColumnIndex()) {
+            mazeArr[front.getRowIndex()][front.getColumnIndex()] = 0;
+            mazeArr[(front.getRowIndex() + back.getRowIndex()) / 2][front.getColumnIndex()] = 0;
+        }
+    }
+
+    /**
+     * In cases of different Row/Columns combinations,
+     * we Make sure there will be a Path to the GoalState
+     * @param maze The 2D Array representing the Maze
+     */
+    private void FinishMaze(int[][] maze) {
+        if(maze == null) {
+            throw new RuntimeException("The Array that  is not valid -null");
+        }
+        if(maze.length % 2 != 0 && maze[0].length % 2 != 0)
+            return;
+        if(maze.length % 2 == 0 && maze[0].length % 2 == 0) { // even even
+            for(int i = 0; i < maze.length - 1; i++){
+                maze[i][maze[0].length-1] = (int) (Math.random() * 2);
             }
-        }
-    }
-    /**
-     * Handles the specific case of generating a 2x2 maze.
-     * Sets appropriate cells to 0 to ensure a valid path from start to goal.
-     */
-    public void Maze2x2() {
-        myMaze.setMaze(myMaze.getStartPosition().getRowIndex(), myMaze.getStartPosition().getColumnIndex(), 0);
-        myMaze.setMaze(myMaze.getGoalPosition().getRowIndex(), myMaze.getGoalPosition().getColumnIndex(), 0);
-
-        int colIndexS= myMaze.getStartPosition().getColumnIndex();
-        int rowIndexS= myMaze.getStartPosition().getRowIndex();
-        int colIndexE= myMaze.getGoalPosition().getColumnIndex();
-        int rowIndexE= myMaze.getGoalPosition().getRowIndex();
-
-        if (colIndexS != colIndexE && rowIndexS != rowIndexE) {
-            if ((colIndexS == 0 && rowIndexS == 0) || (colIndexE == 0 && rowIndexE == 0))
-                myMaze.setMaze(0, 1, 0);
-            else
-                myMaze.setMaze(0, 0, 0);
-        }
-    }
-    /**
-     * Gets the predecessor position that is part of the path from a given position.
-     * @param position the current position
-     * @return the predecessor position
-     */
-    public Position getPrePosition(Position position) {
-        List<Position> neighbours = Neighbours(position);
-        List<Position> prePositionPotential = new ArrayList<>();
-
-        for (Position neighbour : neighbours) {
-            if (myMaze.getValue(neighbour.getRowIndex(), neighbour.getColumnIndex()) == 0)
-                prePositionPotential.add(neighbour);
-        }
-
-        if (prePositionPotential.isEmpty()) {
-            return null;
-        }
-        return prePositionPotential.get(new Random().nextInt(prePositionPotential.size()));
-    }
-    /**
-     * Breaks the wall between two positions to create a path.
-     * @param p1 the first position
-     * @param p2 the second position
-     * @return true if the wall is broken, false otherwise
-     */
-    private boolean breakingWall(Position p1, Position p2) {
-        if (p1 == null || p2 == null) {
-            return false;
-        }
-        if (p1.getRowIndex() == p2.getRowIndex()) {
-            myMaze.setMaze(p1.getRowIndex(), Math.min(p1.getColumnIndex(), p2.getColumnIndex()) + 1, 0);
-        }
-        else if (p1.getColumnIndex() == p2.getColumnIndex()) {
-            myMaze.setMaze(Math.min(p1.getRowIndex(), p2.getRowIndex()) + 1, p1.getColumnIndex(), 0);
-        }
-        return true;
-    }
-    /**
-     * Finds the neighboring positions of a given position.
-     * @param p the current position
-     * @return a list of neighboring positions
-     */
-    public List<Position> Neighbours(Position p) {
-        List<Position> neighbours = new ArrayList<>();
-        int row = p.getRowIndex();
-        int col = p.getColumnIndex();
-        if (isValid(row - 2, col))
-            neighbours.add(positions[row - 2][col]);
-        if (isValid(row + 2, col))
-            neighbours.add(positions[row + 2][col]);
-        if (isValid(row, col - 2))
-            neighbours.add(positions[row][col - 2]);
-        if (isValid(row ,col + 2))
-            neighbours.add(positions[row][col + 2]);
-        return neighbours;
-    }
-    /**
-     * Adds neighboring positions that can be changed to the candidates list.
-     * @param p the current position
-     */
-    public void addCandidates(Position p) {
-        List<Position> neighbours = Neighbours(p);
-        for (Position neighbour : neighbours) {
-            if (myMaze.getValue(neighbour.getRowIndex(), neighbour.getColumnIndex()) == 1 && CanBeChange(neighbour)) {
-                candidates.add(neighbour);
+            for(int j = 0; j < maze[0].length - 1; j++){
+                maze[maze.length - 1][j] = (int) (Math.random() * 2);
             }
+            maze[maze.length-2][maze[0].length-1] = 0;
         }
-    }
-
-    /**
-     * Checks if a position can be changed (i.e., if its cell value is 1).
-     * @param p the position to check
-     * @return true if the position can be changed, false otherwise
-     */
-    public boolean CanBeChange(Position p) {
-        if (myMaze.getValue(p.getRowIndex(), p.getColumnIndex()) == 1)
-            return true;
-        return false ;
-    }
-    /**
-     * Checks if a position is valid within the maze boundaries.
-     * @param row the row index
-     * @param column the column index
-     * @return true if the position is valid, false otherwise
-     */
-    public boolean isValid(int row, int column) {
-        if (row >= 0 && row < myMaze.getRows() && column >= 0 && column < myMaze.getColumns())
-            return true;
-        return false ;
-    }
-
-    /**
-     * Randomly sets a valid end position on the frame of the maze.
-     */
-    public void EndPosition() {
-        boolean b = false;
-        while (!b) {
-            Position p = myMaze.generateFramePosition(myMaze.getRows(), myMaze.getColumns());
-            if (myMaze.getValue(p.getRowIndex(), p.getColumnIndex()) == 0 &&
-                    !p.equals(myMaze.getStartPosition())) {
-                Position position = new Position(p.getRowIndex(), p.getColumnIndex());
-                myMaze.setGoalPosition(position);
-                b = true;
+        if(maze.length % 2 == 0 && maze[0].length % 2 != 0) { //even odd
+            for(int j = 0; j < maze[0].length - 1; j++){
+                maze[maze.length - 1][j] = (int) (Math.random() * 2);
             }
         }
+        if(maze.length % 2 != 0 && maze[0].length % 2 == 0) { //odd even
+            for(int i = 0; i < maze.length - 1; i++){
+                maze[i][maze[0].length-1] = (int) (Math.random() * 2);
+            }
+        }
+    }
+
+    /**
+     * In a case the Row=Column=2
+     * @return the new maze (Maze)
+     */
+    public Maze generate2on2(){
+        int[][] maze = new int[2][2];
+        int randomizeMaze = (int) (Math.random() * 2);
+        if(randomizeMaze == 0){
+            maze[1][0] = 1;
+        }
+        if(randomizeMaze == 1){
+            maze[0][1] = 1;
+        }
+        Maze newMaze = new Maze(maze);
+        return newMaze;
     }
 }

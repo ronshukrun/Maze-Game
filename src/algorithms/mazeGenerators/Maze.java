@@ -1,246 +1,10 @@
-//package algorithms.mazeGenerators;
-//
-//import java.nio.ByteBuffer;
-//import java.util.ArrayList;
-//import java.util.Arrays;
-//import java.util.List;
-//import java.util.Random;
-//
-///**
-// * Maze represents a maze with a specified number of rows and columns.
-// * It includes methods to set and get the values of the maze cells,
-// * as well as to set and get the start and goal positions.
-// */
-//public class Maze {
-//
-//    private int rows;
-//    private int columns;
-//    private int[][] maze;
-//    private Position startPosition;
-//    private Position goalPosition;
-//
-//    /**
-//     * Constructs a Maze with the specified number of rows and columns.
-//     * @param rows the number of rows in the maze
-//     * @param columns the number of columns in the maze
-//     */
-//    public Maze(int rows, int columns) {
-//        this.rows = rows;
-//        this.columns = columns;
-//        this.maze = new int[rows][columns];
-//
-//        Position p1 = generateFramePosition(rows, columns);
-//        Position p2 = generateFramePosition(rows, columns);
-//        while (p1.equals(p2)) {
-//            p2 = generateFramePosition(rows, columns);
-//        }
-//        setStartPosition(p1);
-//        setGoalPosition(p2);
-//    }
-//    public Maze(byte[] byteArray) {
-//        ByteBuffer buffer = ByteBuffer.wrap(byteArray);
-//
-//        // Read dimensions of the maze
-//        this.rows = buffer.getShort();
-//        this.columns = buffer.getShort();
-//
-//        // Initialize maze array
-//        this.maze = new int[rows][columns];
-//
-//        // Read maze content
-//        for (int i = 0; i < rows; i++) {
-//            for (int j = 0; j < columns; j++) {
-//                maze[i][j] = buffer.get();
-//            }
-//        }
-//
-//        // Read start and goal positions
-//        int startRow = buffer.getInt();
-//        int startCol = buffer.getInt();
-//        int goalRow = buffer.getInt();
-//        int goalCol = buffer.getInt();
-//
-//        this.startPosition = new Position(startRow, startCol);
-//        this.goalPosition = new Position(goalRow, goalCol);
-//    }
-//    //Sets the value of a specific cell in the maze.
-//    public void setMaze(int row, int column, int value) {this.maze[row][column] = value;}
-//
-//    //Sets the start position in the maze.
-//    public void setStartPosition(Position startPosition) {
-//        if (startPosition.getRowIndex() < 0 || startPosition.getRowIndex() >= maze.length || startPosition.getColumnIndex() < 0 || startPosition.getColumnIndex() >= maze[0].length) {
-//            throw new IllegalArgumentException("Invalid start position");
-//        }
-//        this.startPosition = startPosition;
-//    }
-//    //Sets the goal position in the maze.
-//    public void setGoalPosition(Position goalPosition) {
-//        if (goalPosition.getRowIndex() < 0 || goalPosition.getRowIndex() >= maze.length || goalPosition.getColumnIndex() < 0 || goalPosition.getColumnIndex() >= maze[0].length) {
-//            throw new IllegalArgumentException("Invalid goal position");
-//        }
-//        this.goalPosition = goalPosition;
-//    }
-//
-//    public void setRows(int rows) {this.rows = rows;}
-//
-//    public void setColumns(int columns) {this.columns = columns;}
-//
-//    public int getRows() {return rows;}
-//
-//    public int getColumns() {return columns;}
-//
-//    public Position getGoalPosition() {return goalPosition;}
-//
-//    public Position getStartPosition() {return startPosition;}
-//
-//    public int getValue(int row, int column) {return maze[row][column];}
-//
-//    public int[][] getMaze() {return maze;}
-//
-//    /**
-//     * Generates a random position on the frame (border) of the maze.
-//     * @param rows the number of rows in the maze
-//     * @param columns the number of columns in the maze
-//     * @return the generated frame position
-//     */
-//    public Position generateFramePosition(int rows, int columns) {
-//        List<Position> framePositions = new ArrayList<>();
-//        // Add points from the top and bottom rows
-//        for (int j = 0; j < columns; j++) {
-//            framePositions.add(new Position(0, j));                      // Top row
-//            framePositions.add(new Position(rows - 1, j));               // Bottom row
-//        }
-//        // Add points from the left and right columns
-//        for (int i = 1; i < rows - 1; i++) {
-//            framePositions.add(new Position(i, 0));                      // Left column
-//            framePositions.add(new Position(i, columns - 1));            // Right column
-//        }
-//        // Choose a random point from the list
-//        Random random = new Random();
-//        int index = random.nextInt(framePositions.size());
-//        return framePositions.get(index);
-//    }
-//
-//
-//    public void print() {
-//
-//        int startRow = getStartPosition().getRowIndex();
-//        int startCol = getStartPosition().getColumnIndex();
-//        int goalRow = getGoalPosition().getRowIndex();
-//        int goalCol = getGoalPosition().getColumnIndex();
-//
-//        for (int i = 0; i < rows; i++) {
-//            for (int j = 0; j < columns; j++) {
-//                if (i == startRow && j == startCol) {
-//                    System.out.print("S ");
-//                } else if (i == goalRow && j == goalCol) {
-//                    System.out.print("E ");
-//                } else {
-//                    System.out.print(maze[i][j] + " ");
-//                }
-//            }
-//            System.out.println();
-//        }
-//    }
-//    ///opt1
-//    /**
-//     * Converts the maze to a byte array representation.
-//     *
-//     * @return the byte array representing the maze
-//     */
-////    public byte[] toByteArray() {
-////        // Calculate total size of byte array needed
-////        int totalSize = 20 + (rows * columns); // 20 bytes for dimensions and positions
-////
-////        // Create byte array
-////        byte[] byteArray = new byte[totalSize];
-////
-////        // Store dimensions of the maze
-////        byteArray[0] = (byte) (rows >> 8);
-////        byteArray[1] = (byte) rows;
-////        byteArray[2] = (byte) (columns >> 8);
-////        byteArray[3] = (byte) columns;
-////
-////        // Store maze content
-////        int index = 4;
-////        for (int i = 0; i < rows; i++) {
-////            for (int j = 0; j < columns; j++) {
-////                byteArray[index++] = (byte) maze[i][j];
-////            }
-////        }
-////
-////        // Store start and goal positions
-////        byteArray[index++] = (byte) (startPosition.getRowIndex() >> 24);
-////        byteArray[index++] = (byte) (startPosition.getRowIndex() >> 16);
-////        byteArray[index++] = (byte) (startPosition.getRowIndex() >> 8);
-////        byteArray[index++] = (byte) startPosition.getRowIndex();
-////        byteArray[index++] = (byte) (startPosition.getColumnIndex() >> 24);
-////        byteArray[index++] = (byte) (startPosition.getColumnIndex() >> 16);
-////        byteArray[index++] = (byte) (startPosition.getColumnIndex() >> 8);
-////        byteArray[index++] = (byte) startPosition.getColumnIndex();
-////        byteArray[index++] = (byte) (goalPosition.getRowIndex() >> 24);
-////        byteArray[index++] = (byte) (goalPosition.getRowIndex() >> 16);
-////        byteArray[index++] = (byte) (goalPosition.getRowIndex() >> 8);
-////        byteArray[index++] = (byte) goalPosition.getRowIndex();
-////        byteArray[index++] = (byte) (goalPosition.getColumnIndex() >> 24);
-////        byteArray[index++] = (byte) (goalPosition.getColumnIndex() >> 16);
-////        byteArray[index++] = (byte) (goalPosition.getColumnIndex() >> 8);
-////        byteArray[index++] = (byte) goalPosition.getColumnIndex();
-////
-////        return byteArray;
-////    }
-//    /// opt2
-////    public byte[] toByteArray() {
-////        List<Byte> out = new ArrayList<Byte>();
-////        byte[] rowInByte = ByteBuffer.allocate(4).putInt(rows).array();
-////        byte[] colInByte = ByteBuffer.allocate(4).putInt(columns).array();
-////        byte[] enterPosX = ByteBuffer.allocate(4).putInt(startPosition.getRowIndex()).array();
-////        byte[] enterPosY = ByteBuffer.allocate(4).putInt(startPosition.getColumnIndex()).array();
-////        byte[] exitPosX = ByteBuffer.allocate(4).putInt(goalPosition.getRowIndex()).array();
-////        byte[] exitPosY = ByteBuffer.allocate(4).putInt(goalPosition.getColumnIndex()).array();
-////        ArrayList<Integer> list = new ArrayList<Integer>();
-////        for (int[] array : maze) {
-////            for (int i : array) {
-////                list.add(i);
-////            }
-////        }
-////        ArrayToList(rowInByte,out);
-////        ArrayToList(colInByte,out);
-////        ArrayToList(enterPosX,out);
-////        ArrayToList(enterPosY,out);
-////        ArrayToList(exitPosX,out);
-////        ArrayToList(exitPosY,out);
-////
-////        for(int i :list)
-////            out.add((Integer.valueOf(i).byteValue()));
-////
-////        byte[] sul = new byte[out.size()];
-////        for(int i= 0 ; i<sul.length;i++)
-////            sul[i]=out.get(i);
-////        return sul;
-////    }
-////    private void ArrayToList( byte[] b , List<Byte> lst){
-////        for(int i = 0; i< b.length;i++){
-////            lst.add(b[i]);
-////        }
-////    }
-//
-//
-//}
 package algorithms.mazeGenerators;
 
-import java.nio.ByteBuffer;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Random;
+import java.io.Serializable;
+import java.util.*;
 
-/**
- * Maze represents a maze with a specified number of rows and columns.
- * It includes methods to set and get the values of the maze cells,
- * as well as to set and get the start and goal positions.
- */
-public class Maze {
+public class Maze implements Serializable {
+    private static final long serialVersionUID = 1L; // for serialization compatibility
 
     private int rows;
     private int columns;
@@ -249,160 +13,217 @@ public class Maze {
     private Position goalPosition;
 
     /**
-     * Constructs a Maze with the specified number of rows and columns.
-     * @param rows the number of rows in the maze
-     * @param columns the number of columns in the maze
+     * constructor 1
+     * setting the startPosition of the Maze to be {0, 0}
+     * setting the goalPosition of the Maze to be {mazeArr.length - 1, mazeArr[0].length - 1}
+     * @param maze 2DArray that presenting the Maze
      */
-    public Maze(int rows, int columns) {
-        this.rows = rows;
-        this.columns = columns;
-        this.maze = new int[rows][columns];
-
-        Position p1 = generateFramePosition(rows, columns);
-        Position p2 = generateFramePosition(rows, columns);
-        while (p1.equals(p2)) {
-            p2 = generateFramePosition(rows, columns);
+    public Maze(int[][] maze) {
+        if (maze == null) {
+            throw new RuntimeException("Array is not valid - null");
         }
-        setStartPosition(p1);
-        setGoalPosition(p2);
-    }
-
-    public Maze(byte[] byteArray) {
-        ByteBuffer buffer = ByteBuffer.wrap(byteArray);
-
-        // Read dimensions of the maze
-        this.rows = buffer.getInt();
-        this.columns = buffer.getInt();
-
-        // Initialize maze array
-        this.maze = new int[rows][columns];
-
-        // Read start and goal positions
-        int startRow = buffer.getInt();
-        int startCol = buffer.getInt();
-        int goalRow = buffer.getInt();
-        int goalCol = buffer.getInt();
-
-        this.startPosition = new Position(startRow, startCol);
-        this.goalPosition = new Position(goalRow, goalCol);
-
-        // Read maze content
-        for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < columns; j++) {
-                maze[i][j] = buffer.get();
-            }
+        if ((maze.length <= 1) || (maze[0].length <= 1)) {
+            throw new RuntimeException("The size of the rows and columns should be greater than 2");
         }
-    }
-
-    public byte[] toByteArray() {
-        List<Byte> out = new ArrayList<>();
-        byte[] rowInByte = ByteBuffer.allocate(4).putInt(rows).array();
-        byte[] colInByte = ByteBuffer.allocate(4).putInt(columns).array();
-        byte[] enterPosX = ByteBuffer.allocate(4).putInt(startPosition.getRowIndex()).array();
-        byte[] enterPosY = ByteBuffer.allocate(4).putInt(startPosition.getColumnIndex()).array();
-        byte[] exitPosX = ByteBuffer.allocate(4).putInt(goalPosition.getRowIndex()).array();
-        byte[] exitPosY = ByteBuffer.allocate(4).putInt(goalPosition.getColumnIndex()).array();
-
-        ArrayToList(rowInByte, out);
-        ArrayToList(colInByte, out);
-        ArrayToList(enterPosX, out);
-        ArrayToList(enterPosY, out);
-        ArrayToList(exitPosX, out);
-        ArrayToList(exitPosY, out);
-
-        for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < columns; j++) {
-                out.add((byte) maze[i][j]);
-            }
-        }
-
-        byte[] sul = new byte[out.size()];
-        for (int i = 0; i < sul.length; i++) {
-            sul[i] = out.get(i);
-        }
-        return sul;
-    }
-
-    private void ArrayToList(byte[] b, List<Byte> lst) {
-        for (byte value : b) {
-            lst.add(value);
-        }
-    }
-
-    // Other methods remain unchanged...
-
-    public void setMaze(int row, int column, int value) {
-        this.maze[row][column] = value;
-    }
-
-    public void setStartPosition(Position startPosition) {
-        if (startPosition.getRowIndex() < 0 || startPosition.getRowIndex() >= maze.length || startPosition.getColumnIndex() < 0 || startPosition.getColumnIndex() >= maze[0].length) {
-            throw new IllegalArgumentException("Invalid start position");
-        }
-        this.startPosition = startPosition;
-    }
-
-    public void setGoalPosition(Position goalPosition) {
-        if (goalPosition.getRowIndex() < 0 || goalPosition.getRowIndex() >= maze.length || goalPosition.getColumnIndex() < 0 || goalPosition.getColumnIndex() >= maze[0].length) {
-            throw new IllegalArgumentException("Invalid goal position");
-        }
-        this.goalPosition = goalPosition;
-    }
-
-    public void setRows(int rows) {
-        this.rows = rows;
-    }
-
-    public void setColumns(int columns) {
-        this.columns = columns;
-    }
-
-    public int getRows() {
-        return rows;
-    }
-
-    public int getColumns() {
-        return columns;
-    }
-
-    public Position getGoalPosition() {
-        return goalPosition;
-    }
-
-    public Position getStartPosition() {
-        return startPosition;
-    }
-
-    public int getValue(int row, int column) {
-        return maze[row][column];
-    }
-
-    public int[][] getMaze() {
-        return maze;
+        this.maze = maze;
+        // Start position is (0,0)
+        this.startPosition = new Position(0, 0);
+        // Goal position is (mazeArr.length - 1, mazeArr[0].length - 1)
+        this.goalPosition = new Position(maze.length - 1, maze[0].length - 1);
+        this.rows = maze.length;
+        this.columns = maze[0].length;
     }
 
     /**
-     * Generates a random position on the frame (border) of the maze.
-     * @param rows the number of rows in the maze
-     * @param columns the number of columns in the maze
-     * @return the generated frame position
+     * constructor 2
+     * setting the new Maze by the byte Arr b
+     * @param b the byteArray that presenting the Maze
      */
-    public Position generateFramePosition(int rows, int columns) {
-        List<Position> framePositions = new ArrayList<>();
-        // Add points from the top and bottom rows
-        for (int j = 0; j < columns; j++) {
-            framePositions.add(new Position(0, j));                      // Top row
-            framePositions.add(new Position(rows - 1, j));               // Bottom row
+    public Maze(byte[] b) {
+        if (b == null) {
+            throw new RuntimeException("Array is not valid - null");
         }
-        // Add points from the left and right columns
-        for (int i = 1; i < rows - 1; i++) {
-            framePositions.add(new Position(i, 0));                      // Left column
-            framePositions.add(new Position(i, columns - 1));            // Right column
+        this.rows = bytesToInt(b[0], b[1]);
+        this.columns = bytesToInt(b[2], b[3]);
+        this.startPosition = new Position(bytesToInt(b[4], b[5]), bytesToInt(b[6], b[7]));
+        this.goalPosition = new Position(bytesToInt(b[8], b[9]), bytesToInt(b[10], b[11]));
+
+        if ((this.rows <= 1) || (this.columns <= 1)) {
+            throw new RuntimeException("The size of the rows and columns should be greater than 2");
         }
-        // Choose a random point from the list
-        Random random = new Random();
-        int index = random.nextInt(framePositions.size());
-        return framePositions.get(index);
+        // initialize the maze
+        int[][] maze = new int[this.rows][this.columns];
+        int thisIndex = 12;
+        for (int i = 0; i < maze.length; i++)
+        {
+            for (int j = 0; j < maze[0].length; j++)
+            {
+                maze[i][j] = b[thisIndex];
+                thisIndex++;
+            }
+        }
+        this.maze = maze;
+    }
+
+    /**
+     * gets two bytes and chain them into one int
+     * @param a first byte
+     * @param b second byte
+     * @return int the chained int of the two bytes (int)
+     */
+    private static int bytesToInt(byte a, byte b) {
+        String one = String.valueOf(a);
+        String two = String.valueOf(b);
+        String c = one + two;
+        return Integer.parseInt(c);
+    }
+
+    public Position getStartPosition() {return startPosition;}
+
+    public Position getGoalPosition() {return goalPosition;}
+
+    public int[][] getMaze() {return maze;}
+
+    public int getRows() {return rows;}
+
+    public int getColumns() {return columns;}
+
+    /**
+     * Turns the Maze representation of the maze to bytes
+     * first two indexes represent the rows number
+     * next two indexes represent the columns number
+     * next four indexes represent the starting position, and then next 4 the goal position
+     * the rest of the indexes represent The contents of the maze in one-dimension
+     * @return byte[] representation of the maze in format above (byte[])
+     */
+    public byte[] toByteArray() {
+        ArrayList<Integer> IntegerCompressed = new ArrayList<>();
+
+        int row = this.rows;
+        int column = this.columns;
+        // indexes: 0 - 1
+        updateArrayList(row, IntegerCompressed);
+        // indexes: 2 - 3
+        updateArrayList(column, IntegerCompressed);
+
+        Position s = this.getStartPosition();
+        Position f = this.getGoalPosition();
+        // indexes: 4 - 5
+        updateArrayList(s.getRowIndex(), IntegerCompressed);
+        // indexes: 6 - 7
+        updateArrayList(s.getColumnIndex(), IntegerCompressed);
+        // indexes: 8 - 9
+        updateArrayList(f.getColumnIndex(), IntegerCompressed);
+        // indexes: 10 - 11
+        updateArrayList(f.getColumnIndex(), IntegerCompressed);
+
+        for (int i = 0; i < this.maze.length; i++) {
+            for (int j = 0; j < this.maze[0].length; j++) {
+                IntegerCompressed.add(this.maze[i][j]);
+            }
+        }
+        return ArrayToByte(IntegerCompressed);
+    }
+
+    /**
+     * function used to add the first 12 values to our maze array format
+     * @param num some number to add to an array list in the our format
+     * @param Arr the array to add the number to
+     */
+    private static void updateArrayList(int num, ArrayList<Integer> Arr) {
+        if (Arr == null) {
+            throw new RuntimeException("The Array that supplied is not legal (null)");
+        }
+        if (num <= 127) {
+            Arr.add(0);
+            Arr.add(num);
+        } else {
+            Arr.add(num / 10);
+            Arr.add(num % 10);
+        }
+    }
+
+    /**
+     * gets an Integer array and turns into a byte array
+     * @param Arr Integer array to turn into byte array
+     * @return the Updated array (byte[])
+     */
+    private static byte[] ArrayToByte(ArrayList<Integer> Arr) {
+        if (Arr == null) {
+            throw new RuntimeException("Array is not valid - null");
+        }
+
+        byte[] byteArr = new byte[Arr.size()];
+        for (int i = 0; i < Arr.size(); i++) {
+            int n = Arr.get(i);
+            byteArr[i] = ((byte) n);
+        }
+        return byteArr;
+    }
+
+    /**
+     * Gets a maze and checks if another maze is equivalent to it
+     * By converting them to byte arrays and comparing them
+     * @param other the other Maze
+     * @return weather the mazes are equal - true/false (boolean)
+     */
+    public boolean isEqual(Maze other) {
+        byte[] thisMazeArr = this.toByteArray(); // this maze represented by a byte Arr
+        byte[] otherMazeArr = other.toByteArray(); // other maze represented by a byte Arr
+        if (Arrays.equals(thisMazeArr, otherMazeArr))
+            return true;
+        return false;
+    }
+
+    /**
+     * return the maze presentation by the simpleCompressor method
+     * @return The maze representation by HashStr (String)
+     */
+    public String getHashStr() {
+        byte[] byteArr = this.toByteArray();
+        ArrayList<String> compressedArr = new ArrayList<>();
+
+        for (int i = 0; i < 12; i++) {
+            compressedArr.add("" + byteArr[i]);
+        }
+
+        boolean flag = false;
+        byte lastByte = 0;
+        int counter = 0;
+        for (int i = 12; i < byteArr.length; i++) {
+            if ((byteArr[i] == lastByte) && (!flag)) {
+                counter++;
+                if (counter == 128) {
+                    compressedArr.add("127");
+                    compressedArr.add("0");
+                    counter = 1;
+                }
+            } else if ((byteArr[i] == lastByte) && (flag)) {
+                counter++;
+                if (counter == 128) {
+                    compressedArr.add("127");
+                    compressedArr.add("0");
+                    counter = 1;
+                }
+            } else if ((byteArr[i] != lastByte) && (flag)) {
+                compressedArr.add(String.valueOf(counter));
+                counter = 1;
+                flag = false;
+                lastByte = byteArr[i];
+            } else if ((byteArr[i] != lastByte) && (!flag)) {
+                compressedArr.add(String.valueOf(counter));
+                counter = 1;
+                flag = true;
+                lastByte = byteArr[i];
+            }
+        }
+        if (counter != 0)
+            compressedArr.add(String.valueOf(counter));
+        String hashStr = "";
+        for (int i = 0; i < compressedArr.size(); i++) {
+            hashStr += compressedArr.get(i);
+        }
+        return hashStr;
     }
 
     public void print() {
@@ -424,4 +245,34 @@ public class Maze {
             System.out.println();
         }
     }
+    /*/
+    public void print() {
+        System.out.println("{");
+        System.out.print("{ S ");
+        for (int k = 1; k < mazeArr[0].length; k++) {
+            if (k != mazeArr[0].length - 1)
+                System.out.print(mazeArr[0][k] + " ");
+            else
+                System.out.println(mazeArr[0][k] + " }");
+        }
+        for (int i = 1; i < this.mazeArr.length - 1; i++) {
+            System.out.print("{ ");
+            for (int j = 0; j < mazeArr[0].length; j++) {
+                if (j != mazeArr[0].length - 1)
+                    System.out.print(mazeArr[i][j] + " ");
+                else
+                    System.out.println(mazeArr[i][j] + " }");
+            }
+        }
+        System.out.print("{ ");
+        for (int t = 0; t < mazeArr[0].length; t++) {
+            if (t != mazeArr[0].length - 1)
+                System.out.print(mazeArr[mazeArr.length - 1][t] + " ");
+            else
+                System.out.println("E }");
+        }
+        System.out.println("}");
+    }
+     */
+
 }
