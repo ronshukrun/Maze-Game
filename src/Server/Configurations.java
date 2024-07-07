@@ -1,88 +1,51 @@
 package Server;
 
-import algorithms.mazeGenerators.*;
-import algorithms.search.*;
+import algorithms.mazeGenerators.EmptyMazeGenerator;
+import algorithms.mazeGenerators.MyMazeGenerator;
+import algorithms.mazeGenerators.SimpleMazeGenerator;
+import algorithms.search.BestFirstSearch;
+import algorithms.search.BreadthFirstSearch;
+import algorithms.search.DepthFirstSearch;
 
 import java.io.*;
-import java.nio.file.Files;
-import java.util.Arrays;
 import java.util.Properties;
-//
-//public class Configurations {
-//
-//    public static int ThreadPoolSize() {
-//        try {
-//            InputStream input = new FileInputStream("resources/config.properties");
-//            Properties prop = new Properties();
-//            // load a properties file
-//            prop.load(input);
-//            // get the property value and print it out
-//            return Integer.parseInt(prop.getProperty("threadPoolSize"));
-//        } catch (Exception e) {
-//            System.out.println(e.getMessage());
-//            return -1;
-//        }
-//
-//    }
-//
-//    public static IMazeGenerator mazeGeneratingAlgorithm() {
-//        try {
-//            InputStream input = new FileInputStream("resources/config.properties");
-//            Properties prop = new Properties();
-//            // load a properties file
-//            prop.load(input);
-//            // get the property value and print it out
-//            String mazeGen = prop.getProperty("mazeGeneratingAlgorithm");
-//            if (mazeGen.equals("MyMazeGenerator"))
-//                return new MyMazeGenerator();
-//            if (mazeGen.equals("SimpleMazeGenerator"))
-//                return new SimpleMazeGenerator();
-//            if (mazeGen.equals("EmptyMazeGenerator"))
-//                return new EmptyMazeGenerator();
-//        } catch (Exception e) {
-//            System.out.println(e.getMessage());
-//
-//        }
-//        return null;
-//    }
-//
-//    public static ISearchingAlgorithm mazeSearchingAlgorithm() {
-//        try {
-//            InputStream input = new FileInputStream("resources/config.properties");
-//            Properties prop = new Properties();
-//            // load a properties file
-//            prop.load(input);
-//            // get the property value and print it out
-//            String mazeGen = prop.getProperty("mazeSearchingAlgorithm");
-//            if (mazeGen.equals("BestFirstSearch"))
-//                return new BestFirstSearch();
-//            if (mazeGen.equals("BreadthFirstSearch"))
-//                return new BreadthFirstSearch();
-//            if (mazeGen.equals("DepthFirstSearch"))
-//                return new DepthFirstSearch();
-//        } catch (Exception e) {
-//            System.out.println(e.getMessage());
-//
-//        }
-//        return null;
-//    }
-//
-//
-//}
-//////////
 
 public class Configurations {
-
     private static Configurations instance = null;
     private Properties prop;
 
     private Configurations() {
         prop = new Properties();
-        try (InputStream input = new FileInputStream("resources/config.properties")) {
-            prop.load(input);
-        } catch (IOException e) {
-            e.printStackTrace();
+        loadDefaults();
+    }
+
+    private void loadDefaults() {
+        File configFile = new File("resources/config.properties");
+        if (configFile.length() == 0) {
+            try (OutputStream output = new FileOutputStream(configFile)) {
+                prop.setProperty("threadPoolSize", "10");
+                prop.setProperty("mazeGeneratingAlgorithm", "MyMazeGenerator");
+                prop.setProperty("mazeSearchingAlgorithm", "BestFirstSearch");
+                prop.setProperty("CompressorType", "MyCompressorOutputStream");
+                prop.store(output, null);
+            } catch (IOException io) {
+                io.printStackTrace();
+            }
+        } else {
+            try (InputStream input = new FileInputStream(configFile)) {
+                prop.load(input);
+            } catch (IOException io) {
+                io.printStackTrace();
+            }
         }
+    }
+
+    public void addProperty(String key, String value) {
+        prop.setProperty(key, value);
+    }
+
+    public String getProperty(String key) {
+        return prop.getProperty(key);
     }
 
     public static Configurations getInstance() {
@@ -92,47 +55,49 @@ public class Configurations {
         return instance;
     }
 
-    public String getProperty(String key) {
-        return prop.getProperty(key);
-    }
-
-    public void setProperty(String key, String value) {
+    public void writeProperties(String threadPoolSize, String mazeGeneratingAlgorithm, String mazeSearchingAlgorithm, String compressorType) {
         try (OutputStream output = new FileOutputStream("resources/config.properties")) {
-            prop.setProperty(key, value);
+            prop.setProperty("threadPoolSize", threadPoolSize);
+            prop.setProperty("mazeGeneratingAlgorithm", mazeGeneratingAlgorithm);
+            prop.setProperty("mazeSearchingAlgorithm", mazeSearchingAlgorithm);
+            prop.setProperty("CompressorType", compressorType);
             prop.store(output, null);
-        } catch (IOException e) {
-            e.printStackTrace();
+        } catch (IOException io) {
+            io.printStackTrace();
         }
     }
 
-    public int getThreadPoolSize() {
-        return Integer.parseInt(getProperty("threadPoolSize"));
-    }
+    public Object[] loadProperties() {
+        try (InputStream input = new FileInputStream("resources/config.properties")) {
+            prop.load(input);
 
-    public IMazeGenerator getMazeGenerator() {
-        String gen = getProperty("mazeGeneratingAlgorithm");
-        switch (gen) {
-            case "MyMazeGenerator":
-                return new MyMazeGenerator();
-            case "SimpleMazeGenerator":
-                return new SimpleMazeGenerator();
-            case "EmptyMazeGenerator":
-                return new EmptyMazeGenerator();
-            default:
-                return null;
-        }
-    }
-    public ISearchingAlgorithm getSearchAlgorithm() {
-        String alg = getProperty("mazeSearchingAlgorithm");
-        switch (alg) {
-            case "BestFirstSearch":
-                return new BestFirstSearch();
-            case "BreadthFirstSearch":
-                return new BreadthFirstSearch();
-            case "DepthFirstSearch":
-                return new DepthFirstSearch();
-            default:
-                return null;
+            String[] properties = new String[4];
+            properties[0] = prop.getProperty("threadPoolSize");
+            properties[1] = prop.getProperty("mazeGeneratingAlgorithm");
+            properties[2] = prop.getProperty("mazeSearchingAlgorithm");
+            properties[3] = prop.getProperty("CompressorType");
+
+            Object[] settings = new Object[4];
+            settings[0] = Integer.parseInt(properties[0]);
+
+            settings[1] = switch (properties[1]) {
+                case "EmptyMazeGenerator" -> new EmptyMazeGenerator();
+                case "SimpleMazeGenerator" -> new SimpleMazeGenerator();
+                default -> new MyMazeGenerator();
+            };
+
+            settings[2] = switch (properties[2]) {
+                case "BestFirstSearch" -> new BestFirstSearch();
+                case "BreadthFirstSearch" -> new BreadthFirstSearch();
+                default -> new DepthFirstSearch();
+            };
+
+            settings[3] = properties[3];
+            return settings;
+
+        } catch (IOException ex) {
+            ex.printStackTrace();
+            return null;
         }
     }
 }

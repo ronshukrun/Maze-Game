@@ -1,27 +1,47 @@
 package Server;
 
 import IO.MyCompressorOutputStream;
-import algorithms.mazeGenerators.IMazeGenerator;
-import algorithms.mazeGenerators.Maze;
+import algorithms.mazeGenerators.*;
 
 import java.io.*;
+import java.util.Properties;
 
 public class ServerStrategyGenerateMaze implements IServerStrategy {
+
     @Override
-    public void applyStrategy(InputStream inFromClient, OutputStream outToClient) throws IOException, ClassNotFoundException {
+    public void ServerStrategy(InputStream inFromClient, OutputStream outToClient) {
         try (ObjectInputStream fromClient = new ObjectInputStream(inFromClient);
-             ObjectOutputStream toClient = new ObjectOutputStream(outToClient)) {
+             ObjectOutputStream toClient = new ObjectOutputStream(outToClient);
+             ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+             MyCompressorOutputStream compressor = new MyCompressorOutputStream(outputStream)) {
 
-            int[] mazeDimensions = (int[]) fromClient.readObject();
-            IMazeGenerator mazeGenerator = Configurations.getInstance().getMazeGenerator();
-            Maze maze = mazeGenerator.generate(mazeDimensions[0], mazeDimensions[1]);
+            int[] mazeSizes = (int[]) fromClient.readObject();
+            AMazeGenerator mazeGenerator = findMazeGenerator();
+            Maze maze = mazeGenerator.generate(mazeSizes[0], mazeSizes[1]);
 
-            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            MyCompressorOutputStream compressor = new MyCompressorOutputStream(byteArrayOutputStream);
             compressor.write(maze.toByteArray());
-            compressor.close();
+            toClient.writeObject(outputStream.toByteArray());
+            toClient.flush();
 
-            toClient.writeObject(byteArrayOutputStream.toByteArray());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private AMazeGenerator findMazeGenerator() {
+        try (InputStream input = new FileInputStream("resources/config.properties")) {
+            Properties prop = new Properties();
+            prop.load(input);
+
+            String mazeGeneratingAlgorithm = prop.getProperty("mazeGeneratingAlgorithm");
+            return switch (mazeGeneratingAlgorithm) {
+                case "EmptyMazeGenerator" -> new EmptyMazeGenerator();
+                case "SimpleMazeGenerator" -> new SimpleMazeGenerator();
+                default -> new MyMazeGenerator();
+            };
+        } catch (IOException e) {
+            e.printStackTrace();
+            return new MyMazeGenerator();
         }
     }
 }
