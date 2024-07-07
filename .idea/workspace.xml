@@ -4,14 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f5f90e17-378a-42b7-b5dc-724b24bcec80" name="Changes" comment="maor">
+    <list default="true" id="f5f90e17-378a-42b7-b5dc-724b24bcec80" name="Changes" comment="package search fix">
+      <change afterPath="$PROJECT_DIR$/resources/config.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ATP-PartA.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ATP-PartA.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/savedMaze.maze" beforeDir="false" afterPath="$PROJECT_DIR$/savedMaze.maze" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Client/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Client/IClientStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/IClientStrategy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/IO/MyCompressorOutputStream.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/IO/MyCompressorOutputStream.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/IO/MyDecompressorInputStream.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/IO/MyDecompressorInputStream.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/IO/SimpleCompressorOutputStream.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/IO/SimpleCompressorOutputStream.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/IO/SimpleDecompressorInputStream.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/IO/SimpleDecompressorInputStream.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/algorithms/mazeGenerators/Maze.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/algorithms/mazeGenerators/Maze.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/RunCompressDecompressMaze.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/RunCompressDecompressMaze.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Server/Configurations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/Configurations.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Server/IServerStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/IServerStrategy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Server/ServerStrategyGenerateMaze.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/ServerStrategyGenerateMaze.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Server/ServerStrategySolveSearchProblem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/ServerStrategySolveSearchProblem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/RunCommunicateWithServers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/RunCommunicateWithServers.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,8 +30,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="JUnit5 Test Class" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -32,6 +41,9 @@
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
@@ -44,6 +56,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.RunCommunicateWithServers.executor": "Run",
     "Application.RunCompressDecompressMaze.executor": "Run",
     "Application.RunMazeGenerator.executor": "Run",
     "Application.RunSearchOnMaze.executor": "Run",
@@ -59,13 +72,13 @@
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/USER/Desktop/cop_APT/ATP-Project-PartB-master",
+    "last_opened_file_path": "C:/Users/USER/Desktop/Code/oryory2/ATP-Project-PartA-main",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Artifacts",
+    "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "preferences.lookFeel",
@@ -80,7 +93,7 @@
       <recent name="algorithms.search" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.RunCompressDecompressMaze">
+  <component name="RunManager">
     <configuration name="RunCompressDecompressMaze" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="test.RunCompressDecompressMaze" />
       <module name="ATP-PartA" />
@@ -168,7 +181,9 @@
       <workItem from="1718097877115" duration="6000" />
       <workItem from="1718289324169" duration="18676000" />
       <workItem from="1719673319965" duration="7196000" />
-      <workItem from="1719817122927" duration="3830000" />
+      <workItem from="1719817122927" duration="19395000" />
+      <workItem from="1719939317128" duration="45000" />
+      <workItem from="1720334919495" duration="13077000" />
     </task>
     <task id="LOCAL‎-00001" summary="zxdfs">
       <option name="closed" value="true" />
@@ -390,18 +405,53 @@
       <option name="project" value="LOCAL‎" />
       <updated>1719817211154</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL‎-00029" summary="fix package IO">
+      <option name="closed" value="true" />
+      <created>1719821189022</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL‎-00029" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1719821189022</updated>
+    </task>
+    <task id="LOCAL‎-00030" summary="Server">
+      <option name="closed" value="true" />
+      <created>1719897322123</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL‎-00030" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1719897322123</updated>
+    </task>
+    <task id="LOCAL‎-00031" summary="package Client">
+      <option name="closed" value="true" />
+      <created>1719897412320</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL‎-00031" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1719897412320</updated>
+    </task>
+    <task id="LOCAL‎-00032" summary="package mazeGenerators fix">
+      <option name="closed" value="true" />
+      <created>1720339553062</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL‎-00032" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1720339553062</updated>
+    </task>
+    <task id="LOCAL‎-00033" summary="package search fix">
+      <option name="closed" value="true" />
+      <created>1720340919770</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL‎-00033" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1720340919770</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="zxdfs" />
-    <MESSAGE value="start project" />
-    <MESSAGE value="open algorithms.mazeGenerators files" />
-    <MESSAGE value="AMazeGenerator&#10;EmptyMazeGenerator&#10;IMazeGenerator&#10;Maze&#10;Position" />
-    <MESSAGE value="RunMazeGenerator" />
     <MESSAGE value="added all search package files" />
     <MESSAGE value="Solution&#10;ISearchable&#10;ISearchingAlgorithm&#10;MazeState&#10;SearchableMaze&#10;Solution" />
     <MESSAGE value="xml" />
@@ -422,6 +472,22 @@
     <MESSAGE value="SimpleDecompressorInputStream&#10;RunCompressDecompressMaze" />
     <MESSAGE value="SimpleDecompressorInputStream&#10;RunCommunicateWithServers.java" />
     <MESSAGE value="maor" />
-    <option name="LAST_COMMIT_MESSAGE" value="maor" />
+    <MESSAGE value="fix package IO" />
+    <MESSAGE value="Server" />
+    <MESSAGE value="package Client" />
+    <MESSAGE value="package mazeGenerators fix" />
+    <MESSAGE value="package search fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="package search fix" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/RunMazeGenerator.java</url>
+          <line>9</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
