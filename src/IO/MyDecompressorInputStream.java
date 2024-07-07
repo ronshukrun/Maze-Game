@@ -6,16 +6,26 @@ import java.io.InputStream;
 public class MyDecompressorInputStream extends InputStream {
 
     private InputStream in;
-
+    /**
+     * constructor
+     * @param inputStream the inputStream field
+     */
     public MyDecompressorInputStream(InputStream in) {
         this.in = in;
     }
-
+    /**
+     * A function that reads one byte from the inputStream (in)
+     * @return 0 (int)
+     */
     @Override
     public int read() throws IOException {
         return in.read();
     }
-
+    /**
+     * Gets Compressed array(compressed by the MyCompressor algorithm)
+     * And Decompresses it adapted to the format
+     * @return 0 (int)
+     */
     @Override
     public int read(byte[] b) throws IOException {
         byte [] input = this.in.readAllBytes(); // read all the bytes from the Stream
