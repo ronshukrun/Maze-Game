@@ -1,63 +1,10 @@
-//package IO;
-//
-//import java.io.IOException;
-//import java.io.InputStream;
-//import java.nio.ByteBuffer;
-//import java.util.Arrays;
-//
-//public class MyDecompressorInputStream extends InputStream {
-//    private InputStream in;
-//
-//    public MyDecompressorInputStream(InputStream in) {
-//        this.in = in;
-//    }
-//
-//    @Override
-//    public int read() throws IOException {
-//        return in.read();
-//    }
-//
-//    @Override
-//    public int read(byte[] b) throws IOException {
-//        try {
-//            byte[] compressedData = in.readAllBytes();
-//            int index = 0;
-//            int outputIndex = 0;
-//
-//            // Copy the first 24 bytes directly
-//            while (index < 24) {
-//                b[outputIndex++] = compressedData[index++];
-//            }
-//
-//            // Decompress the rest of the data
-//            byte[] bytesToDecompress = ByteBuffer.wrap(Arrays.copyOfRange(compressedData, 24, compressedData.length)).array();
-//            StringBuilder result = new StringBuilder();
-//            for (byte val : bytesToDecompress) {
-//                for (int j = 0; j < 8; j++) {
-//                    result.append((val >> (7 - j)) & 0x01);
-//                }
-//            }
-//            String binaryString = result.toString();
-//            for (int i = 24; i < b.length; i++) {
-//                int temp = Character.getNumericValue(binaryString.charAt(i - 24));
-//                b[i] = (byte) temp;
-//            }
-//
-//            return b.length;
-//
-//        } catch (Exception e) {
-//            return -1;
-//        }
-//    }
-//}
 package IO;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.nio.ByteBuffer;
-import java.util.Arrays;
 
 public class MyDecompressorInputStream extends InputStream {
+
     private InputStream in;
 
     public MyDecompressorInputStream(InputStream in) {
@@ -71,38 +18,48 @@ public class MyDecompressorInputStream extends InputStream {
 
     @Override
     public int read(byte[] b) throws IOException {
-        if (b == null) {
-            throw new IllegalArgumentException("Output byte array is null");
+        byte [] input = this.in.readAllBytes(); // read all the bytes from the Stream
+
+        for(int i = 0; i < 12; i++) // read the first 12 bytes from the InPutStream [row, row, column, column, S(r), S(r), S(c), S(c), G(r), G(r), G(c), G(c), ..]
+        {
+            b[i] = input[i];
         }
+        int counter = 12;
 
-        byte[] compressedData = in.readAllBytes();
-        if (compressedData.length < 24) {
-            throw new IOException("Compressed data is too short");
-        }
+        for(int i = 12; i < input.length; i++)
+        {
+            if(i == input.length - 1)
+            {
+                break;
+            }
+            String s, fixedS;
+            if(i != input.length - 2)
+            {
+                s = Integer.toBinaryString(input[i]);
+                fixedS =  fixStr(s, 7);
+            }
+            else
+            {
+                int len = input[input.length - 1];
+                s = Integer.toBinaryString(input[i]);
+                fixedS =  fixStr(s, len);
+            }
 
-        int index = 0;
-        int outputIndex = 0;
-
-        // Copy the first 24 bytes directly
-        while (index < 24) {
-            b[outputIndex++] = compressedData[index++];
-        }
-
-        // Decompress the rest of the data
-        int bitIndex = 0;
-        for (int i = 24; i < compressedData.length; i++) {
-            byte val = compressedData[i];
-            for (int j = 0; j < 8; j++) {
-                if (outputIndex < b.length) {
-                    b[outputIndex++] = (byte) ((val >> (7 - j)) & 0x01);
-                }
+            for (int j = 0; j < fixedS.length(); j++)
+            {
+                b[counter] = (byte)(int)Integer.valueOf(String.valueOf(fixedS.charAt(j)), 2);
+                counter++;
             }
         }
 
-        if (outputIndex < b.length) {
-            throw new IOException("Decompressed data is shorter than expected");
-        }
+        return 0;
+    }
 
-        return b.length;
+    public static String fixStr(String s, int len) {
+        int fix = len - s.length();
+        for (int i = 0; i < fix; i++) {
+            s = '0' + s;
+        }
+        return s;
     }
 }
