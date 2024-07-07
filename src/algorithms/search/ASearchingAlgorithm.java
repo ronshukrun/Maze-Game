@@ -1,5 +1,7 @@
 package algorithms.search;
 
+import java.util.ArrayList;
+
 /**
  * An abstract class representing a searching algorithm.
  */
@@ -36,6 +38,23 @@ public abstract class ASearchingAlgorithm implements ISearchingAlgorithm {
             throw new RuntimeException("The number of nodes must be bigger then 2");
         }
         this.nodesNum = nodesNum;
+    }
+    public static Solution restoreSolutionPath(AState startState, AState thisState) {
+        if ((startState == null) || (thisState == null)) {
+            throw new RuntimeException("arguments is not valid - null");
+        }
+        ArrayList<AState> SolutionPath = new ArrayList<AState>();
+        boolean flag = false;
+
+        while (!flag) {
+            SolutionPath.add(0, thisState);
+            if (thisState.equalsState(startState)) {
+                flag = true;
+                continue;
+            }
+            thisState = thisState.getPrevState();
+        }
+        return new Solution(SolutionPath);
     }
 
 }

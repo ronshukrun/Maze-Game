@@ -1,11 +1,13 @@
 package algorithms.search;
 import algorithms.mazeGenerators.Position;
 
+import java.io.Serializable;
+
 /**
  * MazeState represents a state in a maze. It extends the AState class and provides
  * functionality specific to maze states, such as checking validity and equality.
  */
-public class MazeState extends AState {
+public class MazeState extends AState implements Serializable {
 
     /**
      * Constructs a MazeState with the given position.
@@ -44,13 +46,21 @@ public class MazeState extends AState {
         if (other == null) {
             throw new IllegalArgumentException("The provided AState is null.");
         }
-        Position thisPosition = (Position) this.state;
-        Position otherPosition = (Position) other.getState();
 
-        return thisPosition.getRowIndex() == otherPosition.getRowIndex() &&  thisPosition.getColumnIndex() == otherPosition.getColumnIndex();
+        Object thisState = this.getState();
+        Object otherState = other.getState();
+
+        Position thisPose = ((Position) thisState);
+        Position otherPose = ((Position) otherState);
+
+        return (thisPose.getRowIndex() == otherPose.getRowIndex()) && (thisPose.getColumnIndex() == otherPose.getColumnIndex());
     }
 
 
     @Override
-    public String toString() {return this.state.toString();}
+    public String toString() {
+        if (this.state == null) {
+            return "State is not initialized";
+    }
+        return this.state.toString();}
 }

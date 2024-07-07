@@ -1,9 +1,11 @@
 package algorithms.search;
 
+import java.io.Serializable;
+
 /**
  * This abstract class describes a state in any searchable problem.
  */
-public abstract class AState {
+public abstract class AState implements Serializable {
 
     protected Object state;
     protected AState prevState;
@@ -44,6 +46,7 @@ public abstract class AState {
         }
         this.prevState = prevState;
     }
+
 
 
 }
