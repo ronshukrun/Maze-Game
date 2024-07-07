@@ -8,6 +8,12 @@ import java.util.Properties;
 
 public class ServerStrategyGenerateMaze implements IServerStrategy {
 
+    /**
+     * A function that receives a request from a client
+     * and generates a maze for him according to the Parameters (row,column) the client requested
+     * @param inFromClient the Server's Input stream
+     * @param outToClient the Server's Output stream
+     */
     @Override
     public void ServerStrategy(InputStream inFromClient, OutputStream outToClient) {
         try (ObjectInputStream fromClient = new ObjectInputStream(inFromClient);

@@ -10,11 +10,19 @@ import java.util.Hashtable;
 import java.util.Properties;
 
 public class ServerStrategySolveSearchProblem implements IServerStrategy {
+
     private static int solutionNumber = 1;
     private final String tempDirectoryPath;
     private final Hashtable<String, String> hashtableSolutions;
     private final String hashPath;
 
+    /**
+     * constructor
+     * initialize two fields:
+     * 1. counter = Atomic integer that provide us the number of the mazeFiles created in the past
+     * 2. Hashmap = the hashMap <Maze.hashStr(), solFileName>
+     * when we start the server, it's check for mazes/solutions he created in the past, and add them to the hashMap
+     */
     public ServerStrategySolveSearchProblem() {
         this.tempDirectoryPath = System.getProperty("java.io.tmpdir");
         this.hashPath = tempDirectoryPath + "hashtableSolutions.ser";
@@ -33,7 +41,11 @@ public class ServerStrategySolveSearchProblem implements IServerStrategy {
         }
         return new Hashtable<>();
     }
-
+    /**
+     * A function that receives a maze from the client and return to him the solution of the maze
+     * @param inFromClient the Server's Input stream
+     * @param outToClient the Server's Output stream
+     */
     @Override
     public void ServerStrategy(InputStream inFromClient, OutputStream outToClient) {
         try (ObjectInputStream fromClient = new ObjectInputStream(inFromClient);
