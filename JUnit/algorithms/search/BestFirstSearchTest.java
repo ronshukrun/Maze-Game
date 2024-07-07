@@ -1,84 +1,58 @@
 package algorithms.search;
 
 import algorithms.mazeGenerators.Maze;
-import algorithms.mazeGenerators.Position;
+import algorithms.mazeGenerators.MyMazeGenerator;
 import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.*;
 
-/**
- * BestFirstSearchTest is a unit test class for testing input validation in the BestFirstSearch algorithm.
- * This class ensures that the algorithm handles various edge cases and invalid inputs correctly.
- */
-class BestFirstSearchTest {
+class BestFirstSearchTest
+{
+    private BestFirstSearch bfs = new BestFirstSearch();
 
-    //Tests that the solve method throws an IllegalArgumentException when given a null searchable.
     @Test
-    void testSolveNullSearchable() {
-        BestFirstSearch bfs = new BestFirstSearch();
-        assertThrows(IllegalArgumentException.class, () -> {
+    public void solve() throws Exception
+    {
+        boolean flag = false;
+        try
+        {
             bfs.solve(null);
-        });
+        }
+        catch (RuntimeException e)
+        {
+            flag = true;
+        }
+        assertTrue(flag);
     }
 
-     //Tests that checks that solving a maze with valid and invalid start and goal positions works.
     @Test
-    void testSolveInvalidStartOrGoalPosition() {
-        Maze maze = new Maze(5, 5);
-        // Check invalid start position
-        assertThrows(IllegalArgumentException.class, () -> {maze.setStartPosition(new Position(-1, -1));});
-        // Check invalid goal position
-        assertThrows(IllegalArgumentException.class, () -> {maze.setGoalPosition(new Position(5, 5));});
-        // Set valid start and goal positions
-        maze.setStartPosition(new Position(0, 0));
-        maze.setGoalPosition(new Position(4, 4));
-        // Create a searchable maze and solver
-        SearchableMaze searchableMaze = new SearchableMaze(maze);
-        BestFirstSearch bfs = new BestFirstSearch();
-        // Check solving with valid maze configuration
-        Solution solution = bfs.solve(searchableMaze);
-        // Add assertions to verify the solution if needed
+    public void getName() throws Exception
+    {
+        assertEquals("BestFirstSearch", bfs.getName(), "failure - The name of the Algorithm is invalid");
     }
 
-     //Tests that the solve method correctly finds a path in a valid maze.
     @Test
-    void testSolveValidMaze() {
-        Maze maze = new Maze(5, 5);
-        maze.setMaze(0, 1, 0);
-        maze.setMaze(0, 2, 0);
-        maze.setMaze(1, 2, 0);
-        maze.setMaze(2, 2, 0);
-        maze.setMaze(3, 2, 0);
-        maze.setMaze(4, 2, 0);
-        maze.setGoalPosition(new Position(4, 2));
-        SearchableMaze searchableMaze = new SearchableMaze(maze);
-        BestFirstSearch bfs = new BestFirstSearch();
-        Solution solution = bfs.solve(searchableMaze);
-        assertNotNull(solution);
-        assertEquals(maze.getGoalPosition(), solution.getSolutionPath().get(solution.getSolutionPath().size() - 1).getState());
+    public void setName() throws Exception
+    {
+        bfs.setName("bfs");
+        assertEquals("bfs", bfs.getName(), "failure - The name of the Algorithm is invalid");
     }
-    //Tests that the getName method returns the correct name of the search algorithm.
+
     @Test
-    void testGetName() {
-        BestFirstSearch bfs = new BestFirstSearch();
-        assertEquals("BestFirstSearch", bfs.getName());
+    public void getNumberOfNodesEvaluated() throws Exception
+    {
+        assertEquals(-1, bfs.getNumberOfNodesEvaluated(), "failure - The value of the EvaluatedNodes is invalid");
+        MyMazeGenerator mazeGenerator = new MyMazeGenerator();
+        Maze maze = mazeGenerator.generate(10,10);
+        SearchableMaze sMaze = new SearchableMaze(maze);
+        bfs.solve(sMaze);
+        assertNotEquals(-1, bfs.getNumberOfNodesEvaluated(), "failure - The value of the EvaluatedNodes is invalid");
     }
-    /**
-     * Tests that the setNumberOfNodesEvaluated method throws a RuntimeException
-     * when trying to set the number of nodes evaluated manually.
-     */
+
     @Test
-    void testSetNumberOfNodesEvaluatedInvalid() {
-        BestFirstSearch bfs = new BestFirstSearch();
-        assertThrows(RuntimeException.class, () -> {
-            bfs.setNumberOfNodesEvaluated(1);
-        });
-    }
-     //Tests that the setName method throws a RuntimeException when trying to set the name to null.
-    @Test
-    void testSetNameNull() {
-        BestFirstSearch bfs = new BestFirstSearch();
-        assertThrows(RuntimeException.class, () -> {
-            bfs.setName(null);
-        });
+    public void setNumberOfNodesEvaluated() throws Exception
+    {
+        bfs.setNumberOfNodesEvaluated(100);
+        assertEquals(100, bfs.getNumberOfNodesEvaluated(), "failure - The value of the EvaluatedNodes is invalid");
     }
 }

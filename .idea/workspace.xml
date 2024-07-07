@@ -4,23 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f5f90e17-378a-42b7-b5dc-724b24bcec80" name="Changes" comment="package search fix">
-      <change afterPath="$PROJECT_DIR$/resources/config.properties" afterDir="false" />
+    <list default="true" id="f5f90e17-378a-42b7-b5dc-724b24bcec80" name="Changes" comment="docString">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ATP-PartA.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ATP-PartA.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/savedMaze.maze" beforeDir="false" afterPath="$PROJECT_DIR$/savedMaze.maze" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Client/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Client/IClientStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/IClientStrategy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/IO/MyCompressorOutputStream.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/IO/MyCompressorOutputStream.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/IO/MyDecompressorInputStream.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/IO/MyDecompressorInputStream.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/IO/SimpleCompressorOutputStream.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/IO/SimpleCompressorOutputStream.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/IO/SimpleDecompressorInputStream.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/IO/SimpleDecompressorInputStream.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Server/Configurations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/Configurations.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Server/IServerStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/IServerStrategy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/Server.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Server/ServerStrategyGenerateMaze.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/ServerStrategyGenerateMaze.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Server/ServerStrategySolveSearchProblem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/ServerStrategySolveSearchProblem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/RunCommunicateWithServers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/RunCommunicateWithServers.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,7 +78,7 @@
       <recent name="algorithms.search" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.BestFirstSearchTest">
     <configuration name="RunCompressDecompressMaze" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="test.RunCompressDecompressMaze" />
       <module name="ATP-PartA" />
@@ -156,8 +141,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.RunCompressDecompressMaze" />
         <item itemvalue="JUnit.BestFirstSearchTest" />
+        <item itemvalue="Application.RunCompressDecompressMaze" />
         <item itemvalue="JUnit.BestFirstSearchTest.testSolveInvalidStartOrGoalPosition" />
       </list>
     </recent_temporary>
@@ -183,7 +168,7 @@
       <workItem from="1719673319965" duration="7196000" />
       <workItem from="1719817122927" duration="19395000" />
       <workItem from="1719939317128" duration="45000" />
-      <workItem from="1720334919495" duration="13077000" />
+      <workItem from="1720334919495" duration="20303000" />
     </task>
     <task id="LOCAL‎-00001" summary="zxdfs">
       <option name="closed" value="true" />
@@ -445,19 +430,77 @@
       <option name="project" value="LOCAL‎" />
       <updated>1720340919770</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL‎-00034" summary="package IO complete">
+      <option name="closed" value="true" />
+      <created>1720357438412</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL‎-00034" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1720357438412</updated>
+    </task>
+    <task id="LOCAL‎-00035" summary=".">
+      <option name="closed" value="true" />
+      <created>1720357492820</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL‎-00035" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1720357492820</updated>
+    </task>
+    <task id="LOCAL‎-00036" summary="Client">
+      <option name="closed" value="true" />
+      <created>1720358345156</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL‎-00036" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1720358345156</updated>
+    </task>
+    <task id="LOCAL‎-00037" summary="Server">
+      <option name="closed" value="true" />
+      <created>1720358704684</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL‎-00037" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1720358704684</updated>
+    </task>
+    <task id="LOCAL‎-00038" summary="test">
+      <option name="closed" value="true" />
+      <created>1720359012680</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL‎-00038" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1720359012680</updated>
+    </task>
+    <task id="LOCAL‎-00039" summary="client">
+      <option name="closed" value="true" />
+      <created>1720359462248</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL‎-00039" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1720359462248</updated>
+    </task>
+    <task id="LOCAL‎-00040" summary="docString">
+      <option name="closed" value="true" />
+      <created>1720360337185</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL‎-00040" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1720360337185</updated>
+    </task>
+    <task id="LOCAL‎-00041" summary="docString">
+      <option name="closed" value="true" />
+      <created>1720361091102</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL‎-00041" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1720361091102</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="added all search package files" />
-    <MESSAGE value="Solution&#10;ISearchable&#10;ISearchingAlgorithm&#10;MazeState&#10;SearchableMaze&#10;Solution" />
-    <MESSAGE value="xml" />
-    <MESSAGE value="BestFirstSearch&#10;BreadthFirstSearch" />
-    <MESSAGE value="BestFirstSearchTest" />
-    <MESSAGE value="JUnit" />
     <MESSAGE value="GeneralCheckingFunctions" />
     <MESSAGE value="Docketing ASearchingAlgorithm" />
     <MESSAGE value="Docketing AState" />
@@ -473,11 +516,17 @@
     <MESSAGE value="SimpleDecompressorInputStream&#10;RunCommunicateWithServers.java" />
     <MESSAGE value="maor" />
     <MESSAGE value="fix package IO" />
-    <MESSAGE value="Server" />
     <MESSAGE value="package Client" />
     <MESSAGE value="package mazeGenerators fix" />
     <MESSAGE value="package search fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="package search fix" />
+    <MESSAGE value="package IO complete" />
+    <MESSAGE value="." />
+    <MESSAGE value="Client" />
+    <MESSAGE value="Server" />
+    <MESSAGE value="test" />
+    <MESSAGE value="client" />
+    <MESSAGE value="docString" />
+    <option name="LAST_COMMIT_MESSAGE" value="docString" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
