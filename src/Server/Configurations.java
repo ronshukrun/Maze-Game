@@ -70,10 +70,10 @@ public class Configurations {
     /**
      * write the properties obtained as parameters to the configuration file
      * override the existing properties
-     * @param NumberOfThreads Number of threads to be opened
-     * @param MGA The algorithm for creating a maze
-     * @param MSA The algorithm for solving a maze
-     * @param CompressorType the Compression algorithm
+     * @param threadPoolSize Number of threads to be opened
+     * @param mazeGeneratingAlgorithm The algorithm for creating a maze
+     * @param mazeSearchingAlgorithm The algorithm for solving a maze
+     * @param compressorType the Compression algorithm
      */
     public void writeProperties(String threadPoolSize, String mazeGeneratingAlgorithm, String mazeSearchingAlgorithm, String compressorType) {
         try (OutputStream output = new FileOutputStream("resources/config.properties")) {
@@ -93,7 +93,6 @@ public class Configurations {
     public Object[] loadProperties() {
         try (InputStream input = new FileInputStream("resources/config.properties")) {
             prop.load(input);
-
             String[] properties = new String[4];
             properties[0] = prop.getProperty("threadPoolSize");
             properties[1] = prop.getProperty("mazeGeneratingAlgorithm");
